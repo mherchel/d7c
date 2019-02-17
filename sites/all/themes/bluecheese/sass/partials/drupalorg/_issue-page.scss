@@ -1,0 +1,439 @@
+// Sidebar: Issue settings block
+#block-project-issue-issue-metadata {
+  .block-inner {
+    padding: 0;
+  }
+  .field {
+    margin: 0 1em;
+    padding: (4em / 13);
+    border-bottom: 1px solid lighten($new-gray, 5%);
+  }
+  .field-label {
+    width: 36%;
+  }
+  .field-items {
+    width: 64%;
+  }
+  .field-name-field-issue-status {
+    margin: 0;
+    padding: 1em 0 0.5em;
+    text-align: center;
+    font-weight: bold;
+
+    .field-items {
+      width: 100%;
+    }
+  }
+  .field-name-taxonomy-vocabulary-9 {
+    position: relative;
+
+    .field-items {
+      width: 100%;
+    }
+
+    .field-item {
+      display: inline;
+    }
+
+    .field-item + .field-item:before {
+      content: ", ";
+    }
+
+    // Tag descriptions.
+    .has-description {
+      border-bottom: 1px dashed $new-dk-gray;
+    }
+
+    @include breakpoint($medium) {
+      dl {
+        background: $white;
+        border-radius: .5em;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, .4);
+        margin: 0 .7em 0 0;
+        padding: .4em 1em;
+        position: absolute;
+        top: -.8em;
+        left: -150%;
+        right: 100%;
+        z-index: 1;
+
+        &:after, &:before { // Arrow
+          right: 0;
+          top: 1em;
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+        }
+        &:after {
+          border-left-color: $white;
+          border-width: 10px;
+          margin-right: -19px;
+        }
+        &:before {
+          border-width: 10px;
+          margin-right: -21px;
+        }
+      }
+
+      dt {
+        @include h3;
+      }
+    }
+
+    dd {
+      padding-left: 0;
+
+      &:last-child p:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .new-user {
+    @include new-user-badge;
+    display: inline;
+    font-size: (12em / 13);
+    margin: 0 0 0 0.5em;
+    padding: (1.5em / 12) 0.5em;
+  }
+  .issue-update {
+    padding: 0 0 1em;
+  }
+
+  .flag-project-issue-follow {
+    background: $white;
+    padding: 0 1em;
+  }
+
+  #project-issue-jumplinks {
+    background: $white;
+
+    // These use an "active" class, so force them to bluecheese blue.
+    a {
+      color: $new-blue;
+    }
+  }
+
+  // Issue status field backgrounds
+  .field-issue-status-1 {
+    background-color: $issue-status-1;
+    border-bottom: 2px solid $issue-grey;
+  }
+
+  .field-issue-status-2 {
+    background-color: $issue-status-2;
+    border-bottom: 2px solid $issue-green;
+  }
+
+  .field-issue-status-3,
+  .field-issue-status-4,
+  .field-issue-status-5,
+  .field-issue-status-6,
+  .field-issue-status-16,
+  .field-issue-status-17 {
+    background-color: $issue-status-3;
+    border-bottom: 2px solid $issue-blue;
+  }
+
+  .field-issue-status-7,
+  .field-issue-status-18 {
+    background-color: $issue-status-7;
+    border-bottom: 2px solid nth($issue-pink, 2);
+  }
+
+  .field-issue-status-8 {
+    background-color: $issue-status-8;
+    border-bottom: 2px solid $issue-orange;
+  }
+
+  .field-issue-status-13 {
+    background-color: $issue-status-13;
+    border-bottom: 2px solid nth($issue-pink, 1);
+  }
+
+  .field-issue-status-14,
+  .field-issue-status-15 {
+    background-color: $issue-status-14;
+    border-bottom: 2px solid $issue-light-green;
+  }
+}
+
+#about-tags-link {
+  color: $new-dk-gray;
+}
+
+.extended-file-field-table-filename,
+.nodechanges-file-link {
+  max-width: 28em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+// Node changes tables.
+.field-type-nodechanges-revision-diff table {
+  font-size: 0.92308em; // 12px
+
+  tr.even, tr.odd {
+    background: none;
+    border: none;
+  }
+}
+#extended-file-field-table-field-issue-files {
+  border: 1px solid $new-gray;
+  border-collapse: separate; // Show borders on Firefox
+  width: 100%;
+
+  .extended-file-field-table-row td {
+    border-top: 1px solid $new-gray;
+  }
+  .extended-file-field-table-result-row td {
+    border-top: 0;
+  }
+}
+.nodechanges-file-changes {
+  border: 1px solid $new-gray;
+
+  .nodechanges-file-changes td {
+    border-top: 1px solid $new-gray;
+  }
+}
+.nodechanges-field-changes {
+  background: $new-lt-gray;
+  td {
+    padding: .16666em 0.25em; // 18px total height, separate words.
+    .system-message & {
+      padding: .16666em 0.5em .16666em 0; // Align left edges.
+    }
+  }
+}
+.nodechanges-label {
+  text-align: right;
+  font-weight: bold;
+}
+.nodechanges-old, .nodechanges-new,
+.field-name-field-issue-files .file,
+.nodechanges-file-changes .file {
+  @include force-wrap;
+}
+.nodechanges-old {
+  text-decoration: line-through;
+  &, & a {
+    color: $new-dk-gray;
+  }
+}
+.nodechanges-new {
+  font-weight: bold;
+}
+
+// Since we set margins on the wrapper, floating it is more convenient.
+.issue-settings {
+  .form-item {
+    float: none;
+  }
+}
+.issue-settings-issue {
+  .form-wrapper {
+    // Remove margin between this and description for the whole row.
+    margin-bottom: 0;
+  }
+}
+
+@include breakpoint($medium) {
+  .node-project_issue-form {
+    .form-item-title {
+      @include span-columns(6);
+    }
+    .issue-settings-project {
+      @include span-columns(6 omega);
+      .field-name-field-project {
+        @include span-columns(4, 6);
+      }
+    }
+    .issue-settings-issue {
+      @include span-columns(6);
+      & + .description {
+        clear: both;
+      }
+    }
+  }
+  .node-project_issue-form {
+    .field-name-field-issue-category {
+      max-width: 25%;
+    }
+    .field-name-field-issue-priority {
+      max-width: 25%;
+    }
+    .field-name-field-issue-status {
+      max-width: 50%;
+    }
+    .field-name-field-issue-version {
+      max-width: 25%;
+    }
+    .field-name-field-issue-component {
+      max-width: 50%;
+    }
+    .field-name-field-issue-assigned {
+      max-width: 25%;
+    }
+  }
+  .field-name-field-issue-files .form-type-select {
+    position: absolute;
+    display: inline-block;
+    margin: (-17em / 13) 0 0 1em;
+  }
+}
+
+@include breakpoint($small) {
+  .nodechanges-field-changes {
+    padding: (3em / 13);
+  }
+  .issue-settings .form-wrapper {
+    float: left; // Put dropdowns inline.
+  }
+}
+
+.node-project_issue-form {
+  .issue-settings {
+    clear: none;
+    .form-type-textfield {
+      padding-right: 0;
+    }
+  }
+  .issue-settings-project {
+    .field-name-field-project {
+      width: 100%;
+    }
+    .field-widget-options-select {
+      margin-bottom: 0;
+    }
+  }
+  // Add margin under description, which does not come with a margin.
+  .field-name-taxonomy-vocabulary-9 {
+    margin-top: .692em;
+  }
+  // Increase the width of these fields to span entire form width.
+  .form-item-title,
+  .field-name-field-project,
+  .form-item-taxonomy-vocabulary-9-und,
+  .field-name-field-issue-parent,
+  .field-name-field-issue-related {
+    input.form-text {
+      width: 100%;
+    }
+  }
+}
+
+fieldset.group-issue-attribution {
+  &:not(.filter-wrapper):not(.vertical-tabs-pane) {
+    background: none;
+  }
+  padding: 0;
+  html.js & {
+    legend {
+      display: none;
+    }
+    .organization, .customer {
+      background: $new-lt-gray;
+      padding: 0.3em;
+      border-radius: 5px;
+    }
+    .field-name-field-attribute-contribution-to,
+    .field-name-field-for-customer {
+      background: $new-lt-gray;
+      padding: .8em 1em;
+      border: 1px solid $new-gray;
+      border-radius: .5em;
+      position: absolute; // Stay with flow for top, JS sets left.
+      margin-top: .8em;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, .4);
+      outline: 0; // The presence of these bubbles indicates focus.
+
+      &:after, &:before { // Arrow
+        bottom: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+      &:after {
+        border-bottom-color: $new-lt-gray;
+        border-width: 10px;
+        margin-left: -10px;
+      }
+      &:before {
+        border-bottom-color: $new-gray;
+        border-width: 11px;
+        margin-left: -11px;
+      }
+      button {
+        @include smaller;
+        background: none;
+        border: none;
+        padding: 0px;
+        float: right;
+
+        &:focus,
+        &:hover {
+          border: none;
+        }
+      }
+    }
+    .fieldset-description {
+      float: left; // Pull out of flow so bubbles stick to "Attribute this contribution to" line.
+    }
+  }
+  html:not(.js) & .customer-suggestion {
+    display: none;
+  }
+}
+
+#drupalorg-issue-credit-form {
+  .credit-summary {
+    padding-bottom: (8em / 13);
+  }
+  .form-item-message input {
+    width: 100%;
+  }
+  table {
+    width: inherit; // Do not stretch to full width.
+    margin: 0.61538em 0;
+  }
+  th {
+    white-space: nowrap;
+  }
+  tr.odd .form-item, tr.even .form-item {
+    // Override core style, allow wrapping.
+    white-space: normal;
+  }
+  .author {
+    text-align: center;
+  }
+  .number {
+    text-align: right;
+  }
+  textarea {
+    font-family: monospace;
+  }
+  .bar {
+    height: 1em;
+    background-color: $new-green;
+    border-radius: 3px;
+    &.overflow {
+      background: none;
+      @include background-image(linear-gradient(left, $new-green 0%, $new-green 95%, rgba($new-green,0) 100%));
+    }
+  }
+}
+
+// Do not wrap links.
+#project-issue-jumplinks,
+.view-project-issue-issue-relations .view-footer {
+  a {
+    white-space: nowrap;
+  }
+}

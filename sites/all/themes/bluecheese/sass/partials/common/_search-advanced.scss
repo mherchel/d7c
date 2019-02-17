@@ -1,0 +1,61 @@
+// Search filter and sort form.
+#drupalorg-search-sort-form,
+#drupalorg-browse-projects-form {
+  .form-item > * {
+    display: inline;
+  }
+
+  label {
+    font-weight: normal;
+    margin: 0 .5em 0 0;
+  }
+}
+
+.drupalorgSearch-processed input[type=submit] {
+  display: none;
+}
+
+// Project listings search form.
+.page-project #drupalorg-browse-projects-form {
+  background-color: $new-lt-gray;
+  margin: 0 0 (8em / 13) 0;
+  padding: 10px;
+
+  .results-count {
+    border-bottom: 1px solid $new-gray;
+    margin: 0 0 1em 0;
+    padding-bottom: 0.5em;
+  }
+}
+
+// Sidebar search filters
+.page-search #aside {
+  .block {
+    background: none;
+  }
+
+  ul {
+    margin-left: -1em;
+  }
+
+  li {
+    margin: 0 0 .5em 0;
+  }
+
+  a {
+    padding: .25em .5em .25em 1em;
+
+    &.selected,
+    &:hover,
+    &.facetapi-active {
+      background: $new-dk-gray;
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}
+
+// Sidebar search form.
+#drupalorg-crosssite-search-form .form-text {
+  width: 150px;
+}

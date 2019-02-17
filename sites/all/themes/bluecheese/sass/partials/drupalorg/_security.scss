@@ -1,0 +1,31 @@
+// Security announcement risk.
+.field-name-field-sa-criticality {
+  strong {
+    border-radius: 4px;
+    color: $black;
+    padding: 2px 4px;
+  }
+
+  // Loosely based on https://en.wikipedia.org/wiki/Homeland_Security_Advisory_System
+  .highly-critical strong {
+    background: $strong-red;
+    color: $white;
+  }
+
+  .critical strong {
+    background: $asterisk-warning;
+  }
+
+  .moderately-critical strong {
+    background: $new-yellow;
+  }
+
+  .less-critical strong {
+    background: $new-lt-blue;
+  }
+
+  // This doesn’t really happen.
+  .not-critical strong {
+    background: $new-green;
+  }
+}

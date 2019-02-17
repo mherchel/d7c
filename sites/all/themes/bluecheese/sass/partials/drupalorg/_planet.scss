@@ -1,0 +1,41 @@
+// Planet Drupal
+#aggregator {
+  .feed-item-title {
+    @include h2;
+  }
+  .feed-item {
+    @include clearfix;
+    margin-bottom: 2.077em;
+  }
+  .feed-item-date {
+    font-style: italic;
+  }
+}
+
+// News menu in the sidebar
+#aside #block-menu-menu-drupal-news {
+  background: $white;
+}
+
+#block-menu-menu-drupal-news,
+#content .pane-menu-menu-drupal-news { // Over-qualified #content for list styles.
+  ul.menu {
+    margin-left: -1em;
+    padding: 0;
+
+    li {
+      list-style: none;
+      margin: 0 0 .5em;
+    }
+  }
+
+  a {
+    padding: .25em .5em .25em 1em;
+
+    &.active, &:hover, &:focus {
+      background: $icon-pointer no-repeat 0 center $new-dk-gray;
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}

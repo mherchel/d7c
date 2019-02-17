@@ -1,0 +1,69 @@
+.container .panel-pane.pane-fieldable-panels-pane { // Overwrite bluecheese styles
+  &.d-sponsor {
+    background: url('../images/redesign2018/bg-diagonal-pattern.png') repeat darken($new-blue, 7%);
+    padding: 1em 2em;
+    .fieldable-panels-pane {
+      background-color: $new-lt-gray;
+      box-shadow: 0 0 10px rgba($black, .4);
+      margin: 0 auto;
+      max-width: 960px;
+      padding: 0;
+      position: relative;
+      text-align: left;
+      .pane-content-inner {
+        border: 0;
+        margin: 0;
+        @include breakpoint($medium) {
+          display: flex;
+        }
+      }
+      .field-name-field-cta-graphic {
+        align-items: center;
+        background-color: $white;
+        display: flex;
+        justify-content: center;
+        padding: 2em 1em;
+        @include breakpoint($medium) {
+          padding: 1em;
+          width: 35%;
+        }
+        img {
+          display: block;
+          max-width: 15em;
+          width: 100%;
+        }
+      }
+      .field-name-field-cta-link .field-item {
+        border: 0;
+        a {
+          @extend .primary-button;
+        }
+      }
+      .cta-text {
+        padding: 2em;
+        h2 {
+          font-size: 1.5em;
+          font-weight: 500;
+          margin: 0;
+          text-transform: uppercase
+        }
+        p {
+          margin: 0;
+          padding: 0;
+        }
+      }
+      small {
+        font-size: .75em;
+        line-height: 1;
+        position: absolute;
+        right: .5em;
+        text-transform: uppercase;
+        bottom: .5em;
+        @include breakpoint($medium) {
+          bottom: auto;
+          top: .5em;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+.panel-pane.pane-fieldable-panels-pane { // Overwrite bluecheese styles
+  &.d-text .fieldable-panels-pane {
+    background-color: $white;
+  }
+}

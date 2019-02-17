@@ -1,0 +1,349 @@
+// Project image.
+@include breakpoint($small) {
+  .node .field-name-field-project-images {
+    @include span-columns(3 omega, 8);
+    margin: 0 0 .692em 20px;
+  }
+}
+
+.node .field-name-field-supporting-organizations {
+  .field-collection-item-field-supporting-organizations {
+    margin-bottom: .4615em; // 6px
+  }
+  .field-name-field-supporting-organization {
+    float: left;
+    padding-right: 0.5em;
+  }
+}
+
+
+// Project information
+.project-info {
+  #content & {
+    list-style-type: none;
+    padding-left: 2.8em;
+  }
+
+  li {
+    clear: left;
+    margin: 0 0 .692em 0;
+  }
+
+  .icon-left {
+    margin-left: -2.8em;
+  }
+
+  small {
+    color: $new-dk-gray;
+  }
+}
+
+// Project releases
+.view-project-release-download-table {
+  &.view-display-id-recommended>.view-content .release {
+    background: lighten($new-yellow, 30%);
+    margin: 0 0 1em 0;
+    padding: 1em;
+
+    img {
+      filter: opacity(.5) drop-shadow(0 0 0 $new-yellow) brightness(2);
+    }
+
+    &.recommended-Yes.security-covered {
+      background: lighten($new-green, 30%);
+      img {
+        filter: opacity(.5) drop-shadow(0 0 0 $new-green) brightness(2);
+      }
+    }
+  }
+
+  .view-display-id-security .release {
+    background: lighten($strong-red, 50%);
+    margin: 0 0 1em 0;
+    padding: 1em;
+
+    img {
+      filter: opacity(.5) drop-shadow(0 0 0 $strong-red) brightness(2);
+    }
+  }
+
+  div.warning {
+    margin: 0;
+  }
+
+  p {
+    margin: .5em 0;
+
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  strong {
+    font-size: 1.1em;
+  }
+
+  // Stable release shield
+  .security-covered img {
+    height: (18em / 13);
+    margin: -1em .25em -.3em .25em;
+  }
+
+  .release-info {
+    background: rgba(255, 255, 255, .5);
+    margin: 1em -1em -1em;
+    padding: 1em;
+  }
+
+  // Dev releases without a tagged release section.
+  .view-footer .release-info {
+    background: $new-lt-gray;
+    margin: 0 0 1em 0;
+  }
+}
+
+#mini-panel-download_table {
+  .panel-pane {
+    clear: both;
+    margin-bottom: 1em;
+  }
+  .views-row {
+    clear: both;
+    margin-bottom: 2em;
+    overflow: auto;
+  }
+  .release-date {
+    display: block;
+    margin-top: 0.5em;
+  }
+  .views-field-timestamp {
+    float: left;
+  }
+  .views-field-field-release-short-description {
+    width: 100%;
+    @include breakpoint($medium) {
+      float: right;
+      width: 60%;
+    }
+  }
+
+  .pane-project-downloads-recommended,
+  .pane-project-downloads-prereleases {
+    .views-field-field-release-version {
+      float: left;
+      display: block;
+      width: 100%;
+      @include breakpoint($medium) {
+        width: 40%;
+        padding-right: 2%;
+      }
+      text-align: center;
+      h4 {
+        font-size: 1.2em;
+        margin: 0;
+      }
+      a {
+        background: $new-blue;
+        color: $white;
+        margin-bottom: 1em;
+        padding: 1.25em .5em;
+        width: 100%;
+        display: block;
+        &:hover, &:focus {
+          background: $new-dk-blue;
+          text-decoration: none;
+        }
+      }
+      .release-date {
+        color: $new-lt-gray;
+        font-size: 0.95em;
+      }
+    }
+  }
+
+  .pane-project-downloads-prereleases {
+    .views-field-field-release-version {
+      a {
+        background: $white;
+        border: 2px solid $new-blue;
+        color: $body-text;
+
+        &:hover, &:focus {
+          border: 2px solid $new-dk-blue;
+          color: $white;
+
+          .release-date {
+            color: $new-lt-gray;
+          }
+        }
+      }
+
+      .release-date {
+        color: $new-dk-gray;
+      }
+    }
+  }
+
+  .release-date {
+    color: $new-dk-gray;
+  }
+
+  .panel-pane {
+    .views-field-field-release-version {
+      a {
+        &:hover, &:focus {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+// Star & subscribe.
+#sidebar-first #block-drupalorg-project-follow {
+  background: $white;
+  .block-inner {
+    padding: 0;
+  }
+}
+
+#block-drupalorg-project-follow {
+  @include smaller;
+
+  .content > span {
+    border: 1px solid $new-gray;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 0 0 0 .4em;
+
+    a, span {
+      display: inline-block;
+    }
+
+    a {
+      color: $new-dk-gray;
+      padding: 4px .5em 4px 2em;
+    }
+
+    .flag-link-toggle,
+    .log-in-to-star {
+      background: url(../images/icon-dk-gray-star-fill.svg) transparent left center / 1.5em no-repeat;
+
+      &.unflag-action {
+        background-image: url(../images/icon-green-star-fill.svg);
+      }
+    }
+
+    .flag-throbber {
+      width: 0;
+    }
+
+    .count {
+      background: $new-lt-gray;
+      border-radius: 0 3px 3px 0;
+      padding: 4px .5em;
+    }
+
+    .mail {
+      background: url(../images/icon-dk-gray-mail.svg) transparent -.4em center / 2.5em no-repeat;
+    }
+  }
+}
+
+// Maintainers block
+#block-versioncontrol-project-project-maintainers {
+  .vc-commit-times {
+    @include smaller;
+  }
+
+  span.vc-commits {
+    white-space: nowrap;
+  }
+}
+
+// Issue cockpit block
+.block-project-issue, #homebox .block-project_issue { // Homebox uses an underscore.
+  // Search issues
+  .form-item {
+    display: inline;
+    padding-right: 0.5em;
+  }
+  form a {
+    display: block;
+  }
+
+  // Header styling
+  h3 {
+    color: $new-dk-gray;
+    font-weight: normal;
+    margin-bottom: 0;
+  }
+
+  // Sparklines
+  .metric-label {
+    display: inline-block;
+    width: 7.6em;
+    text-align: right;
+  }
+}
+
+// Used on project usage graphs.
+.sparkarea {
+  .label-line {
+    stroke: $new-dk-gray;
+  }
+
+  .area {
+    &.series-0 {
+      fill: $new-lt-blue;
+    }
+    &.series-1 {
+      fill: lighten($new-blue, 5%);
+    }
+    &.series-2 {
+      fill: lighten($new-md-blue, 5%);
+    }
+    &.series-3 {
+      fill: darken($new-dk-blue, 5%);
+    }
+  }
+}
+
+// Edit tags.
+#versioncontrol-project-edit-tags {
+  li {
+    margin: 0 0 .5em 0;
+  }
+
+  a.delete {
+    margin: 0 0 0 .5em;
+
+    &,
+    &:visited,
+    &:active {
+      @include smaller;
+    }
+
+    &::before {
+      background: url(../images/icon-trash.svg) no-repeat;
+      content: ' ';
+      display: inline-block;
+      filter: opacity(.6);
+      height: 1.25em;
+      width: 1.4em;
+      vertical-align: text-bottom;
+    }
+
+    &:hover,
+    &:focus {
+      color: $new-orange;
+
+      &::before {
+        filter: opacity(.5) drop-shadow(0 0 0 $new-orange) brightness(2);
+      }
+    }
+  }
+}

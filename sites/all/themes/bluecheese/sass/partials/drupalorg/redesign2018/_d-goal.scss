@@ -1,0 +1,18 @@
+.panel-pane.pane-fieldable-panels-pane { // Overwrite bluecheese styles
+  &.d-goal {
+    .fieldable-panels-pane {
+      background-color: $white;
+    }
+    h2 {
+      color: $new-md-blue;
+      font-size: 2.5em;
+      margin: 0;
+    }
+    p {
+      margin-bottom: 0;
+      & + p {
+        margin-top: 1em;
+      }
+    }
+  }
+}

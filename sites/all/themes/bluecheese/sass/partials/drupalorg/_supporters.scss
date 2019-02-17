@@ -1,0 +1,86 @@
+@mixin supporter-logo($width, $height: $width / 2) {
+  display: inline-block;
+  float: left;
+  margin: 0 0 2em;
+  padding: 0;
+  position: relative;
+  width: $width;
+
+  .views-field-field-logo {
+    height: $height;
+    position: relative;
+  }
+
+  img {
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  .views-field-field-short-description {
+    padding-right: 1em;
+  }
+}
+
+.view-drupalorg-supporters {
+  h2 {
+    @extend .h1;
+  }
+
+  ul.grid {
+    @include clearfix;
+
+    &.cols-2 li {
+      @include supporter-logo(300px);
+    }
+
+    &.cols-4 li {
+      @include supporter-logo(150px, 100px);
+      min-height: 12em;
+    }
+  }
+
+  // Technology Supporters
+  &.view-display-id-attachment_2 {
+    ul.grid.cols-4 li {
+      @include supporter-logo(20%, 100px);
+    }
+  }
+}
+
+#content ul.grid {
+  padding-left: 0;
+}
+
+// Try Drupal page
+.try-grid-item {
+  background: $new-lt-gray;
+  border: 1px solid $new-gray;
+  margin: .8em 0;
+  padding: 2em;
+  text-align: center;
+  height: 23em;
+  img {
+    max-width: 74%;
+    margin: 0 13% 1em 13%;
+  }
+}
+@include breakpoint($medium) {
+  .try-grid-item {
+    @include span-columns(6, 12);
+    @include nth-omega(2n);
+  }
+}
+
+// Hilighted box for use on /hosting/dedicated for example
+.hilighted-box { 
+  background: $new-lt-gray; 
+  padding: .8em 1em; 
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+

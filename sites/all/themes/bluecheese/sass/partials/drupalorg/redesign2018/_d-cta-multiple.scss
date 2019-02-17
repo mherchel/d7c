@@ -1,0 +1,95 @@
+.pane-bundle-cta-multiple {
+  color: $new-dk-gray;
+  text-align: center;
+  .field-name-field-infographics > .field-items {
+    @include breakpoint($medium) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    & > .field-item {
+      flex: 0 1 50%;
+      padding: 1em;
+      position: relative;
+      @include breakpoint($extra-large) {
+        flex-basis: 33.3%;
+      }
+    }
+  }
+  .field-collection-container,
+  .field-collection-view {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+  .pane-title {
+    color: $new-dk-gray;
+  }
+  .pane-content {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: calc(960px + 8vw);
+    padding: 1em 4vw 2em;
+  }
+  .field-name-field-title {
+    font-weight: bold;
+    a {
+      color: $new-dk-gray;
+      // Pseudoelement to link all block
+      &::before {
+        bottom: 0;
+        content: '';
+        display: block;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      &:focus {
+        outline: 0;
+        &::before {
+          outline: 1px dotted $new-dk-gray;
+        }
+      }
+    }
+  }
+  .field-name-field-cta-graphic {
+    margin: 0 auto;
+    max-width: 15em;
+    position: relative;
+    .field-prefix-shape {
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: -.5em;
+      @include breakpoint($extra-large) {
+        top: 0;
+      }
+    }
+    img {
+      margin-bottom: 17%;
+      margin-top: 17%;
+      max-height: 5em;
+      max-width: 40%;
+      position: relative;
+    }
+  }
+  .fieldable-panels-pane > .field-name-field-link {
+    margin-top: 1em;
+    a {
+      @extend .secondary-button;
+    }
+  }
+  // Animations.
+  svg {
+    display: block;
+    max-width: 100%;
+    .end {
+      visibility: hidden;
+    }
+  }
+  .start {
+    fill: #f2f2f2;
+  }
+}

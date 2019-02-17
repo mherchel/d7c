@@ -1,0 +1,14 @@
+.panel-pane.d-highlights {
+  background-color: $new-lt-gray;
+  padding-top: 1em;
+  text-align: left;
+  .pane-title {
+    padding-top: 1em;
+    text-align: center;
+  }
+  .field-name-field-title {
+    font-size: 1.2em;
+    margin-bottom: .5em;
+    margin-top: .5em;
+  }
+}

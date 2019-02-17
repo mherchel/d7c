@@ -1,0 +1,55 @@
+.panel-pane.pane-fieldable-panels-pane { // Overwrite bluecheese styles
+  &.d-focus {
+    @include breakpoint($extra-large) {
+      float: left;
+      width: 50%;
+    }
+    .fieldable-panels-pane {
+      background-color: $new-lt-gray;
+      padding: 2em;
+      @include breakpoint($extra-large) {
+        display: flex;
+        min-height: 40vh;
+      }
+      &.pane-style-dark {
+        background: rgb(4,82,146);
+        background: radial-gradient(ellipse at center, rgba(4,82,146,1) 0%,rgba(1,20,45,1) 100%);
+        height: 100%;
+      }
+    }
+    .pane-content {
+      height: 100%;
+    }
+    .pane-content-inner {
+      width: 100%;
+    }
+    h2 {
+      font-size: 1.2em;
+      font-weight: 600;
+      margin-bottom: 0;
+      margin-top: .5em;
+    }
+    .field-name-field-cta-body, p {
+      margin: 0;
+    }
+    .field.field-name-field-cta-graphic {
+      max-height: 8em;
+      max-width: 10em;
+      margin: 0 auto;
+      padding: 0;
+      img {
+        max-height: 8em;
+      }
+    }
+  }
+}
+
+// Same height (based on js class)
+.h-focus-wrapper {
+  @include breakpoint($extra-large) {
+    display: flex;
+    .panel-pane {
+      flex: 1;
+    }
+  }
+}

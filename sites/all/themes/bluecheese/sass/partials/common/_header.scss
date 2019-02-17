@@ -1,0 +1,87 @@
+#header {
+  background: url('../images/redesign2018/bg-shapes.svg') #08447a no-repeat center center;
+  background-size: cover;
+  color: $white;
+
+  // www home page blurb.
+  p {
+    color: $new-lt-blue;
+    font-size: 1.1em;
+    line-height: 1.5;
+  }
+
+  .drupalorg-site-security & {
+    background: #843916;
+    background: linear-gradient(to bottom, #843916 0%,#c43d10 100%);
+  }
+}
+
+@include breakpoint($medium) {
+  #header-inner {
+    display: flex;
+  }
+
+  #header-left {
+    @include span-columns(7);
+  }
+
+  #header-right {
+    @include span-columns(5 omega);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+// Name and logo
+#site-name a {
+  display: block;
+  line-height: 1em;
+  overflow: hidden;
+  padding: 0.5em 0 0.25em 0;
+
+  img {
+    width: 181px;
+
+    .drupalorg-site-api &,
+    .drupalorg-site-localize &,
+    .drupalorg-site-security & {
+      width: auto;
+    }
+
+    &.association,
+    .drupalorg-site-association & {
+      width: 202px;
+    }
+  }
+
+  .node-type-guide &,
+  .node-type-documentation & {
+    font-size: 3em;
+    font-weight: 300;
+    @include breakpoint($extra-large) {
+      font-size: 3.5em;
+    }
+    &:hover, &:focus {
+      color: $new-lt-blue;
+      text-decoration: none;
+    }
+  }
+}
+
+#header-left, #header-right {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#header-left {
+  h2 {
+    color: $white;
+    font-size: 2.2em;
+    font-weight: 200;
+    margin: 12px 0 12px 0;
+  }
+  a {
+    color: $white;
+  }
+}

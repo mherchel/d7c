@@ -1,0 +1,79 @@
+.panel-pane.pane-fieldable-panels-pane { // Overwrite bluecheese styles
+  &.d-hero-persona {
+    background-color: #08447a;
+    overflow: hidden;
+    position: relative;
+    .fieldable-panels-pane {
+      background-color: transparent;
+      background-position: center center;
+      display: flex;
+      overflow: hidden;
+      padding: 2em;
+      position: relative;
+      &::before, &::after {
+        bottom: 0;
+        content: '';
+        display: block;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 0;
+      }
+      &::before {
+        background: radial-gradient(ellipse at center, #045292 0%, #01142d 100%);
+        opacity: .4;
+      }
+      &::after {
+        background: url('../images/redesign2018/bg-hero-persona.png') no-repeat center center;
+      }
+      .pane-content-inner {
+        width: 100%;
+        z-index: 1;
+        @include breakpoint($medium) {
+          &::before {
+            background-repeat: no-repeat;
+            background-size: contain;
+            content: '';
+            display: block;
+            height: 200%;
+            left: -5em;
+            opacity: .35;
+            position: absolute;
+            top: -50%;
+            width: 25em;
+          }
+        }
+      }
+    }
+    .field.field-name-field-cta-graphic {
+      padding: 0;
+      text-align: left;
+      width: 100% !important;
+      img {
+        display: inline-block;
+        width: auto;
+      }
+    }
+    .field-name-field-cta-link {
+      float: right;
+    }
+    h2 {
+      font-style: italic;
+      margin-bottom: .15em;
+    }
+    p {
+      margin: 0;
+    }
+  }
+  // Persona icons.
+  &.d-hero-persona-developers .pane-content-inner::before {
+    background-image: url('../images/personas/icon-persona-developers.svg');
+  }
+  &.d-hero-persona-marketeers .pane-content-inner::before {
+    background-image: url('../images/personas/icon-persona-marketing.svg');
+  }
+  &.d-hero-persona-agencies .pane-content-inner::before {
+    background-image: url('../images/personas/icon-persona-agencies.svg');
+  }
+}

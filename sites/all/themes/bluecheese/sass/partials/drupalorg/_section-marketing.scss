@@ -1,0 +1,520 @@
+.panel-layout.capricorn {
+  h2 {
+    font-size: 1.75em;
+    line-height: 1.1em;
+  }
+
+  .pane-title {
+    margin: auto;
+    max-width: calc(960px + 8vw);
+    padding: 2em 4vw 0 4vw;
+  }
+
+  .tertiary-wrapper,
+  .nonary-wrapper,
+  .view-drupalorg-casestudies,
+  .pane-community-stats .pane-content {
+    @include clearfix;
+    color: $new-dk-gray;
+    margin: auto;
+    max-width: calc(960px + 4em);
+  }
+
+  .column-content-region,
+  .view-drupalorg-casestudies .views-row {
+    padding: 2em 4vw;
+    position: relative;
+  }
+
+  @include breakpoint($medium) {
+    .tertiary-wrapper,
+    .nonary-wrapper,
+    .view-drupalorg-casestudies .view-content,
+    .pane-community-stats .pane-content {
+      display: flex; // Equal heights.
+    }
+
+    .column-content-region,
+    .view-drupalorg-casestudies .view-content .views-row {
+      padding: 2em;
+
+      @include with-grid-settings(12,4em,0em,0em) {
+        @include span-columns(4);
+        @include nth-omega(3n);
+      }
+    }
+  }
+
+  .tertiary-second, .nonary-second {
+    background-color: $new-lt-gray;
+
+    .pane-bundle-case-study,
+    .pane-bundle-cta {
+      .pane-style-card .pane-content-inner {
+        background-color: $new-lt-gray;
+      }
+
+      .pane-style-built-by {
+        .built-by {
+          background: $new-gray;
+        }
+      }
+    }
+  }
+
+  .pane-bundle-case-study,
+  .pane-bundle-cta {
+    background-repeat: no-repeat;
+
+    h2 {
+      color: inherit;
+    }
+
+    .pane-style-dark {
+      background-color: $new-dk-gray;
+      color: $new-lt-gray;
+
+      a,
+      blockquote:before {
+        color: darken($new-lt-blue, 10%);
+      }
+
+      a.action-button {
+        color: $white;
+      }
+
+      .field-name-field-cta-link a,
+      input[type="submit"] {
+        border-color: $new-lt-gray;
+        color: $new-lt-gray;
+        &:hover, &:focus {
+          background-color: $new-lt-gray;
+          border-color: $new-lt-gray;
+          color: $new-dk-gray;
+        }
+      }
+      .field-name-field-cta-link .field-item:not(:first-child) a {
+        border-color: transparent;
+        background: transparent;
+
+        &:hover, &:focus {
+          color: $new-lt-gray;
+          text-decoration: underline;
+        }
+      }
+
+      &.pane-style-ribbon {
+        background-color: $new-dk-blue;
+      }
+    }
+
+    .pane-style-light {
+      background-color: $new-lt-gray;
+      color: $new-dk-gray;
+
+      &.pane-style-ribbon {
+        background-color: $new-lt-blue;
+
+        .field-name-field-cta-link a {
+          border-color: $new-dk-gray;
+          color: $new-dk-gray;
+          &:hover, &:focus {
+            background-color: $new-dk-gray;
+            border-color: $new-dk-gray;
+            color: $new-lt-gray;
+          }
+        }
+      }
+    }
+
+    .pane-style-full {
+      background-size: cover;
+      overflow: auto;
+      padding: 2em 4vw;
+
+      .pane-style-full-inner {
+        margin: auto;
+        max-width: 960px;
+      }
+
+      .field-name-field-cta-graphic {
+        padding: 2em 0;
+        text-align: center;
+      }
+
+      &.stack .field-name-field-cta-graphic {
+        padding: 2em 0 0 0;
+      }
+
+      &.title .field-name-field-cta-graphic {
+        text-align: left;
+      }
+
+      .field-name-field-cta-body,
+      .field-name-field-cta-body-2 {
+        padding: .5em 0;
+      }
+
+      &.center {
+        text-align: center;
+      }
+
+      @include breakpoint($small) {
+        &.stack,
+        &.two-col {
+          .field-name-field-cta-graphic {
+            width: 60%;
+          }
+        }
+
+        &.title .field-name-field-cta-graphic {
+          img {
+            height: 2em;
+            width: auto;
+          }
+        }
+      }
+
+      @include breakpoint($medium) {
+        &.original {
+          .field-name-field-cta-graphic {
+            float: right;
+            width: 40%;
+          }
+          .cta-text {
+            float: left;
+            padding: 2em 0;
+            width: 58%;
+          }
+        }
+
+        &.mirror {
+          .field-name-field-cta-graphic {
+            float: left;
+            width: 40%;
+          }
+          .cta-text {
+            float: right;
+            padding: 2em 0;
+            width: 58%;
+          }
+        }
+
+        &.fifty-fifty {
+          .field-name-field-cta-graphic {
+            float: right;
+            width: 48%;
+            margin-top: 1em;
+          }
+          .cta-text {
+            float: left;
+            padding: 1em 0 0 0;
+            width: 48%;
+          }
+        }
+
+        &.center {
+          .cta-text {
+            margin: 0 auto;
+            width: 58%;
+          }
+        }
+
+        &.stack {
+          .field-name-field-cta-graphic {
+            width: 30%;
+          }
+          .cta-text {
+            width: 58%;
+          }
+        }
+
+        &.two-col {
+          .field-name-field-cta-graphic {
+            width: 30%;
+          }
+          .field-name-field-cta-body {
+            @include span-columns(6);
+          }
+          .field-name-field-cta-body-2 {
+            @include span-columns(6 omega);
+          }
+        }
+
+        &.title {
+          .cta-text {
+            width: 58%;
+          }
+
+          .field-name-field-cta-graphic {
+            img {
+              height: 2.5em;
+            }
+          }
+        }
+      }
+    }
+
+    .field-name-field-cta-link {
+      .field-item {
+        display: inline-block;
+      }
+
+      a {
+        @extend %button-link-secondary;
+        font-size: inherit;
+      }
+    }
+
+    // Styles with outer link.
+    a .field-name-field-cta-link .field-item {
+      @extend %button-link-secondary;
+      font-size: inherit;
+    }
+
+    .pane-style-card {
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: top;
+      color: $new-dk-gray;
+      margin: -2em -4vw;
+
+      &.with-background {
+        padding-top: 9em;
+      }
+
+      .pane-content-inner {
+        background-color: $white;
+        padding: 1em;
+      }
+
+      .field-name-field-cta-graphic {
+        margin: 1em auto;
+        width: 70%;
+        text-align: center;
+
+        img {
+          max-height: 5em;
+          width: auto;
+        }
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+    a.card-link {
+      &:hover, &:focus {
+        text-decoration: none;
+
+        strong {
+          text-decoration: underline;
+        }
+      }
+
+      strong {
+        color: $new-blue;
+        font-weight: normal;
+      }
+    }
+
+    .pane-style-sponsor {
+      padding: 1em;
+      text-align: center;
+
+      h2 {
+        font-size: 1.25em;
+      }
+
+      .pane-content-inner {
+        border: 2px solid $new-gray;
+        margin: 0 0 .5em 0;
+      }
+
+      // Cards always have the outer link style.
+      .field-name-field-cta-link .field-item {
+        border: 2px solid $new-dk-gray;
+        color: $new-dk-gray;
+      }
+    }
+    a.card-link {
+      &:hover, &:focus {
+        .pane-style-sponsor .field-name-field-cta-link .field-item {
+          background: $new-dk-gray;
+          color: $white;
+        }
+      }
+    }
+
+    .pane-style-built-by {
+      padding-bottom: 4.5em;
+
+      .built-by {
+        background: $new-lt-gray;
+        height: 4.5em;
+        padding: 0.5em 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+
+        .field-name-field-cta-graphic {
+          display: inline-block;
+          vertical-align: middle;
+          text-align: left;
+        }
+
+        img {
+          max-height: 2em;
+          width: auto;
+        }
+      }
+      .built-by-label {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 0.5em;
+      }
+    }
+
+    @include breakpoint($medium) {
+      .pane-style-card {
+        margin: -2em;
+      }
+    }
+
+    .pane-style-ribbon {
+      .pane-style-ribbon-inner {
+        margin: auto;
+        max-width: 960px;
+      }
+      background-size: cover;
+      overflow: auto;
+      padding: 1em 4vw;
+      .field-name-field-cta-graphic {
+        float: left;
+        padding-right: 2em;
+        text-align: center;
+        width: 20%;
+        img {
+          height: 60px;
+          width: auto;
+        }
+      }
+      .cta-text {
+        float: left;
+        width: 85%
+      }
+      h2 {
+        display: inline-block;
+        padding: 0.5em 1em 0.5em 0;
+        margin-bottom: 0;
+        vertical-align: middle;
+      }
+      .field-name-field-cta-link {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.field-name-field-cta-link a,
+.pane-bundle-cta input[type="submit"] {
+  background: rgba(255, 255, 255, .15);
+}
+
+.pane-community-stats {
+  text-align: center;
+
+  strong {
+    font-size: 1.25em;
+  }
+
+  @include breakpoint($medium) {
+    text-align: left;
+    .users, .commits, .comments {
+      padding: 1.5em 0;
+      position: relative;
+      &::before {
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        content: '';
+        display: block;
+        height: 4em;
+        left: 0;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20%;
+      }
+    }
+    .users {
+      padding-left: 35%;
+      &::before {
+        background-image: url(../images/redesign2018/icon-community-dk-users.svg);
+        width: 30%;
+      }
+    }
+    .commits {
+      padding-left: 20%;
+      &::before {
+        background-image: url(../images/redesign2018/icon-community-dk-commits.svg);
+      }
+    }
+    .comments {
+      padding-left: 25%;
+      &::before {
+        background-image: url(../images/redesign2018/icon-community-dk-comments.svg);
+      }
+    }
+  }
+}
+
+.pane-drupalorg-casestudies-panel-pane-1 {
+  background: $new-lt-gray;
+
+  .more-link {
+    padding: 0 4vw 2em 4vw;
+    text-align: left;
+
+    a {
+      @extend .button-link;
+    }
+  }
+
+  @include breakpoint($medium) {
+    .more-link {
+      padding: 0 2em 2em 2em;
+    }
+  }
+}
+
+#drupalorg-lead-capture-form {
+  .form-text, .form-select, .form-textarea {
+    font-size: 1em;
+    width: 80%;
+  }
+  .form-item-first-name, .form-item-last-name {
+    float: left;
+    margin-right: 2%;
+    width: 39%;
+
+    .form-text {
+      width: 100%;
+    }
+  }
+}
+
+// Keep aspect ratio in IE.
+.capricorn {
+  img[src$=".svg"] {
+    width: 100%;
+    height: auto;
+  }
+
+  .header {
+    font-size: 1.5em;
+    line-height: 1.2em;
+  }
+}

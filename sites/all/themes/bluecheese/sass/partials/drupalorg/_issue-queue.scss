@@ -1,0 +1,122 @@
+// Reset theme the td's instead of tr's for reliability
+body .project-issue tr.odd,
+body .project-issue tr.even {
+  background: none;
+  border: none;
+}
+
+.project-issue {
+  border-collapse: separate; // Show borders on Firefox.
+
+  // default state, override where required
+  tr td,
+  tr td.active {
+    background-color: $issue-status-1;
+    border-top: 2px solid $issue-grey;
+  }
+
+  tr td.active {
+    background-color: $white;
+    border-top: 2px solid $issue-dark-grey;
+  }
+
+  // target the td's rather than tr's
+  tr.state-1 td {
+    background-color: $issue-status-1;
+    border-top: 2px solid $issue-grey;
+  }
+
+  tr.state-1 td.active {
+    background-color: $white;
+    border-top: 2px solid $issue-dark-grey;
+  }
+
+  tr.state-2 td {
+    background-color: $issue-status-2;
+    border-top: 2px solid $issue-green;
+  }
+
+  tr.state-2 td.active {
+    background-color: $issue-lime;
+    border-top: 2px solid darken($issue-lime, 20%);
+  }
+
+  tr.state-3 td,
+  tr.state-4 td,
+  tr.state-5 td,
+  tr.state-6 td,
+  tr.state-16 td,
+  tr.state-17 td {
+    background-color: $issue-status-3;
+    border-top: 2px solid $issue-blue;
+  }
+
+  tr.state-3 td.active,
+  tr.state-4 td.active,
+  tr.state-5 td.active,
+  tr.state-6 td.active,
+  tr.state-16 td.active,
+  tr.state-17 td.active {
+    background-color: $issue-pale-grey;
+    border-top: 2px solid $issue-bright-blue;
+  }
+
+  tr.state-7 td,
+  tr.state-18 td
+  {
+    background-color: $issue-status-7;
+    border-top: 2px solid nth($issue-pink, 2);
+  }
+
+  tr.state-7 td.active,
+  tr.state-18 td.active
+  {
+    background-color: nth($issue-pink, 3);
+    border-top: 2px solid nth($issue-pink, 4);
+  }
+
+  tr.state-8 td {
+    background-color: $issue-status-8;
+    border-top: 2px solid $issue-orange;
+  }
+
+  tr.state-8 td.active {
+    background-color: nth($issue-yellow, 1);
+    border-top: 2px solid nth($issue-yellow, 2);
+  }
+
+  tr.state-13 td {
+    background-color: $issue-status-13;
+    border-top: 2px solid nth($issue-pink, 1);
+  }
+
+  tr.state-13 td.active {
+    background-color: nth($issue-pink, 5);
+    border-top: 2px solid nth($issue-pink, 6);
+  }
+
+  tr.state-14 td,
+  tr.state-15 td
+  {
+    background-color: $issue-status-14;
+    border-top: 2px solid $issue-light-green;
+  }
+
+  tr.state-14 td.active,
+  tr.state-15 td.active
+  {
+    background-color: nth($issue-yellow, 3);
+    border-top: 2px solid $issue-bright-green;
+  }
+}
+
+// Create a new issue / Advanced search / E-mail notifications links
+.page-project-issues #content ul.links li {
+  display: inline;
+  padding-right: 0.5em;
+}
+
+// “N new” links.
+.views-field-comment-count a {
+  display: block;
+}

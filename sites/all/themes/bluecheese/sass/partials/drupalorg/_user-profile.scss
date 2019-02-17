@@ -1,0 +1,10 @@
+html:not(.js) #drupalorg-add-confirm-button {
+  display: none;
+}
+
+.profile {
+  #drupalorg-add-confirm-button {
+    @extend %confirm-button;
+    width: $user-picture-width;
+  }
+}

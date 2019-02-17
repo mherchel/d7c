@@ -1,0 +1,83 @@
+table.mobile-table {
+  width: 100%;
+  // Stops table from being bigger than the page container
+  table-layout: fixed;
+  th {
+    display: none;
+  }
+  td {
+    display: block;
+    border: none !important;
+    // Removes label from issue title as it is not needed
+    &.views-field-title,
+    &.views-field-field-project {
+      &:before {
+      display: none;
+      }
+    }
+    &:first-child {
+      padding-top: 0.75em;
+      font-weight: bold;
+    }
+    &:last-child {
+      padding-bottom: 0.75em;
+    }
+    &:before {
+      // Adds the original header title infront of each table cell
+      content: attr(data-th)" ";
+      font-weight: bold;
+      width: 8em;
+      display: inline-block;
+    }
+  }
+  // Switch the issue status table cell border styles to the rows for mobile.
+  &.project-issue tr {
+    background-color: $issue-status-1;
+    border-bottom: 1px solid $new-gray;
+    border-top: 2px solid $issue-grey;
+    //forces the removal of all border-tops cells of every state
+    td {
+      &.active {
+      background-color: initial !important;
+      }
+      &.views-field-title {
+        max-width: none;
+      }
+    }
+    &.state-1 {
+      background-color: $issue-status-1;
+      border-top: 2px solid $issue-grey;
+    }
+    &.state-2 {
+      background-color: $issue-status-2;
+      border-top: 2px solid $issue-green;
+    }
+    &.state-3,
+    &.state-4,
+    &.state-5,
+    &.state-6,
+    &.state-16,
+    &.state-17 {
+      background-color: $issue-status-3;
+      border-top: 2px solid $issue-blue;
+    }
+    &.state-7,
+    &.state-18 {
+      background-color: $issue-status-7;
+      border-top: 2px solid nth($issue-pink, 2);
+    }
+    &.state-8 {
+      background-color: $issue-status-8;
+      border-top: 2px solid $issue-orange;
+    }
+    &.state-13 {
+      background-color: $issue-status-13;
+      border-top: 2px solid nth($issue-pink, 1);
+    }
+    &.state-14,
+    &.state-15 {
+      background-color: $issue-status-14;
+      border-top: 2px solid $issue-light-green;
+    }
+  }
+}

@@ -1,0 +1,77 @@
+// API.Drupal.org specific styles
+
+.drupalorg-site-api {
+  // Hooks lists on API pages
+  .ctools-collapsible-container {
+    margin-bottom: 5px;
+  }
+
+  // Search form
+  .block-api {
+    .description {
+      float: right;
+      padding-left: 10px;
+    }
+    input[type="submit"] {
+      margin-top: .5em;
+    }
+  }
+
+  table.views-table {
+    &:not(.mobile-table) .views-field-title {
+      min-width: 20em;
+    }
+  }
+
+  #api-function-signature.mobile-table {
+    td:before {
+      // Function signature tables already have headings on the left.
+      display: none;
+    }
+    .branch {
+      text-align: left;
+      padding-bottom: 0;
+    }
+    .signature {
+      padding-top: 0;
+    }
+  }
+
+  @include breakpoint($extra-large) {
+    // Use the full width.
+    .container-12 {
+      width: 90%;
+      max-width: none;
+    }
+  }
+
+  #content {
+    // Lists in the main content area, such as class hierarchies.
+    .item-list ul {
+      padding-left: 0;
+      ul {
+        padding-left: 1.5em;
+      }
+      .item-list li {
+        list-style: disc;
+      }
+    }
+
+    // Tables in the main content area, such as the Form API reference.
+    table {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+// 'View source' lists
+ol.code-lines,
+ol.code-lines li {
+  margin: 0 0 0 30px;
+}
+
+#api-function-signature td {
+  border: 0;
+  vertical-align: baseline;
+}

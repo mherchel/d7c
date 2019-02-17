@@ -1,0 +1,24 @@
+#autocomplete {
+  border: 1px solid $new-gray;
+  border-top: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .4);
+
+  #content & ul { // Needed on Views exposed filters, like issue queue advanced search.
+    list-style-type: none;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
+  li {
+    padding: .25em .5em;
+
+    &.selected {
+      background: $new-blue;
+    }
+  }
+}
+
+// Work around https://drupal.org/node/1218684.
+.field-widget-entityreference-autocomplete .field-multiple-table .form-type-textfield {
+  position: relative;
+}

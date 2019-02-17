@@ -1,0 +1,95 @@
+#footer {
+  @include new-font;
+  background-color: $new-dk-blue;
+  .block {
+    padding: 2em 0;
+
+    // Trademark block at the bottom.
+    &:last-child {
+      padding: 1em 0;
+
+      a {
+        color: $white;
+        font-weight: bold;
+      }
+
+      .block-inner {
+        border-top: 1px solid lighten($new-dk-blue, 10%);
+        color: $white;
+        padding-top: 1em;
+        text-align: center;
+      }
+    }
+  }
+
+  .block-inner {
+    @extend .container-12;
+  }
+}
+
+#block-drupalorg-crosssite-drupalorg-footer {
+  @include clearfix;
+  color: $white;
+
+  // Footer links
+  a {
+    color: $white;
+
+    &:focus {
+      outline: 0;
+      background: rgba($black, .2);
+      box-shadow: 0 0 0 5px rgba($black, .2);
+    }
+  }
+  li:first-child {
+    margin-bottom: .5em;
+    a {
+      font-weight: bold;
+    }
+  }
+
+  ul {
+    margin-top: 20px;
+    &.drupal-news {
+      margin-top: 0;
+    }
+    // 2 columns
+    @media all and (min-width: 380px) and (max-width: 534px) {
+      @include span-columns(5,10);
+      &.community,
+      &.download-extend { @include omega; }
+      &.community { margin-top: 0; }
+      &.about,
+      &.get-started { clear: left; }
+    }
+    // 3 columns
+    @media all and (min-width: 535px) and (max-width: 699px) {
+      @include span-columns(4,12);
+      &.get-started {
+        @include omega;
+        margin-top: 0;
+      }
+      &.download-extend { clear: left; }
+      &.community { margin-top: 0; }
+    }
+    // 4 columns
+    @media all and (min-width: 700px) and (max-width: 793px) {
+      @include span-columns(3,12);
+      &.download-extend { @include omega; }
+      &.community { margin-top: 0; }
+      &.get-started { margin-top: 0; }
+      &.download-extend { margin-top: 0; }
+      &.about { clear: left; }
+    }
+    // Desktop 5 columns
+    @media all and (min-width: 794px) {
+      @include span-columns(2,10);
+      &.about { @include omega; }
+      margin-top: 0;
+    }
+  }
+}
+
+#block-drupalorg-documentation-license {
+  background: $new-gray;
+}

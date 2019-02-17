@@ -1,0 +1,23 @@
+// Taxonomy terms
+.terms a,
+.terms a:link,
+.terms a:visited,
+.view-drupalorg-casestudies .views-field-term-node-tid .field-content a,
+.view-drupalorg-casestudies .views-field-term-node-tid .field-content a:link,
+.view-drupalorg-casestudies .views-field-term-node-tid .field-content a:visited {
+  border-radius: 5px;
+  color: $new-dk-gray;
+  display: inline-block;
+  margin: 3px 0;
+  padding: 3px 5px;
+  text-decoration: none;
+}
+.terms a:hover,
+.terms a:active,
+.terms a:focus,
+.view-drupalorg-casestudies .views-field-term-node-tid .field-content a:hover,
+.view-drupalorg-casestudies .views-field-term-node-tid .field-content a:active,
+.view-drupalorg-casestudies .views-field-term-node-tid .field-content a:focus {
+  background: lighten($new-dk-gray, 20%);
+  color: $white;
+}

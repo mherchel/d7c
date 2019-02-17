@@ -1,0 +1,147 @@
+.node-type-project-release {
+  .pane-title {
+    margin-top: 0.75em;
+  }
+  .preface {
+    .views-row {
+      a {
+        color: $new-dk-green;
+      }
+      .extension {
+        display: none;
+      }
+    }
+    .views-row-1, .views-row-2 {
+      margin-bottom: (18em / 13);
+      .download {
+        background-color: $new-green;
+        border: 2px solid $new-green;
+        color: $white;
+        display: block;
+        font-size: (16em / 13);
+        padding: (18em / 16);
+        margin-bottom: (9em / 16);
+        max-width: columns(3, 8, static);
+        text-align: center;
+        text-decoration: none;
+        &:hover, &:focus {
+          background-color: $new-dk-green;
+          border: 2px solid $new-dk-green;
+        }
+      }
+      .extension {
+        display: inline;
+      }
+      .filename {
+        display: none;
+      }
+
+      // File size.
+      > .field-content {
+        @include smaller;
+      }
+    }
+    .hash {
+      @include monospace-font;
+    }
+    .views-field-field-release-file-hash,
+    .views-field-field-release-file-sha1,
+    .views-field-field-release-file-sha256 {
+      @include smaller;
+      display: none;
+    }
+    .show-views-field-field-release-file-hash .views-field-field-release-file-hash {
+      display: block;
+    }
+    .show-views-field-field-release-file-sha1 .views-field-field-release-file-sha1 {
+      display: block;
+    }
+    .show-views-field-field-release-file-sha256 .views-field-field-release-file-sha256 {
+      display: block;
+    }
+    @include breakpoint($medium) {
+      .no-hashes {
+        .views-row-1, .views-row-2 {
+          @include span-columns(3, 8);
+          text-align: center;
+        }
+        .views-row-3 {
+          clear: left;
+        }
+      }
+      .pane-views-panes {
+        @include span-columns(8);
+      }
+    }
+    .pane-custom {
+      text-align: center;
+      @include breakpoint($medium) {
+        @include span-columns(4 omega)
+      }
+
+      a {
+        border: 2px solid $new-blue;
+        display: block;
+        padding: 1.5em;
+        width: 100%;
+        &:hover, &:focus {
+          background-color: $new-lt-blue;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+  .release-hash-links a.active {
+    color: $body-text;
+  }
+  .top-right-content {
+    margin-bottom: 1em;
+  }
+  .left-content {
+    .pane-custom {
+      .pane-content {
+        padding-left: 5px;
+        padding-right: 20px;
+      }
+    }
+    .drupal8-sponsor {
+      background: $new-lt-gray;
+      padding: 1.5em 1em;
+      .sponsor {
+        background: $white;
+        overflow: auto;
+        margin: 1em 0.25em 0.25em 0.25em;
+        padding: 1.5em;
+        @include breakpoint($medium) {
+          img {
+            width: 48%;
+            height: auto;
+          }
+          .text {
+            float: right;
+            width: 45%;
+            margin-left: 6%;
+          }
+        }
+        .text {
+          p {
+            margin-bottom: 0;
+            &:first-of-type {
+              margin-bottom: 1em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.pane-release-composer-info {
+  clear: both;
+}
+
+// Release files table.
+.view-project-release-files td.views-field-field-release-file-hash {
+  @include monospace-font;
+  @include smaller;
+}

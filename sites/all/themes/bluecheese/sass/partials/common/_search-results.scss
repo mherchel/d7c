@@ -1,0 +1,41 @@
+// Search results page
+.page-search h1 {
+  background: $new-lt-gray;
+  color: $new-dk-gray;
+  font-size: 1.38461em; // 1.38461 * 13 = 18px
+  padding: 10px;
+}
+
+.page-search h1 em {
+  font-style: normal;
+  font-weight: bold;
+}
+
+// Override theme's ol
+.search-results {
+  padding-left: 0;
+}
+
+.search-results {
+  .title {
+    font-size: 1.231em; // override core search.css, resetting to match standard h3.
+    margin: 0;
+  }
+
+  // Override core search
+  .search-snippet-info {
+    padding-left: 0;
+  }
+}
+
+.search-results .search-info {
+  @include smaller;
+}
+
+// todo: check if this is needed
+.search-results dd {
+  padding-left: 0;
+}
+.search-results dt {
+  font-size: 1em;
+}

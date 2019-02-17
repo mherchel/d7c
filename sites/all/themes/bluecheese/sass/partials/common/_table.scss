@@ -1,0 +1,78 @@
+table {
+  margin-bottom: 0.5em;
+}
+
+thead th {
+  border-bottom: 0;
+  padding: 0.25em 0.5em;
+  vertical-align: bottom;
+}
+
+th,
+td {
+  padding: 0.25em 0.5em;
+
+  &.numeric {
+    text-align: right;
+  }
+}
+
+th {
+  font-weight: bold;
+  vertical-align: top;
+
+  a,
+  a:link,
+  a:visited {
+    color: $body-text;
+  }
+
+  &.active {
+    background: $new-lt-gray;
+
+    // Keep sort indicator on the same line.
+    a {
+      display: block;
+      padding-right: 13px;
+    }
+
+    img {
+      float: right;
+      margin: 0 -13px 0 0;
+    }
+  }
+}
+
+td {
+  border: 1px solid $new-gray;
+  vertical-align: top; // Reset the reset.
+
+  &.active {
+    background-color: initial; // Reset core style.
+  }
+
+  .views-view-grid & {
+    border: 0;
+  }
+}
+
+tr {
+  &.even {
+    background: $new-lt-gray;
+  }
+
+  &.odd {
+    background-color: $white;
+  }
+
+  &.even,
+  &.odd {
+    border-bottom: 0; // Reset core style.
+    position: relative;
+
+    td {
+      border: 0;
+      vertical-align: middle;
+    }
+  }
+}

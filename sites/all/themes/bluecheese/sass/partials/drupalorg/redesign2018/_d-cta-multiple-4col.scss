@@ -1,0 +1,11 @@
+.pane-bundle-cta-multiple.d-4col {
+  .field-name-field-infographics > .field-items {
+    flex-wrap: wrap;
+    & > .field-item {
+      flex-basis: 50%;
+      @include breakpoint($extra-large) {
+        flex-basis: 25%;
+      }
+    }
+  }
+}

@@ -1,0 +1,135 @@
+// Test results on project_issue nodes and projects' Automated Testing pages.
+.pift-ci-tests {
+  // Reset styles.
+  #content & {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  .test {
+    background: $new-lt-gray;
+    border: 1px solid $new-lt-gray;
+    border-radius: 4px;
+    color: $body-text;
+    display: inline-block;
+    margin: (2em / 13) 0;
+    padding: (1em / 13) 0.25em;
+  }
+
+  .pift-ci-fail .test {
+    background: $messages-error;
+    border: 1px solid $messages-error;
+  }
+  .pift-ci-pass .test {
+    background: $messages-status;
+    border: 1px solid $messages-status;
+  }
+
+  // Emphasize issue tests.
+  .pift-ci-issue .test {
+    font-weight: bold;
+    border: 1px solid $new-dk-gray;
+  }
+
+  // Issue page tables.
+  .pift-test-info & {
+    @include clearfix;
+    li {
+      display: inline;
+    }
+  }
+}
+
+// Job results table.
+.pift-ci-results,
+.pift-ci-checkstyle {
+  width: 100%;
+  table-layout: fixed;
+
+  td {
+    border: 0;
+  }
+}
+
+.pift-ci-results {
+  .pift-ci-result-column {
+    width: 3em;
+    text-align: right;
+    vertical-align: top;
+  }
+  .pift-ci-no-output {
+    // Match .ctools-collapsible-container .ctools-toggle
+    width: 21px;
+    float: left;
+    text-align: center;
+  }
+  .ctools-collapsible-content {
+    overflow: auto;
+  }
+  pre {
+    width: 100%;
+  }
+
+  // Suite headings.
+  .pift-ci-suite {
+    background: $new-lt-gray;
+    td {
+      font-weight: bold;
+    }
+  }
+}
+
+// Pass/fail icons.
+.pift-ci-icon {
+  color: $white;
+  display: inline-block;
+  width: (17em / 13);
+  text-align: center;
+  border-radius: 1em;
+}
+.pift-ci-fail .pift-ci-icon {
+  background: $strong-red;
+}
+.pift-ci-pass .pift-ci-icon {
+  background: $new-dk-green;
+}
+
+.pift-ci-toggle .active {
+  font-weight: bold;
+  color: $body-text;
+}
+.pift-ci-hide-all-pass .pift-ci-all-pass {
+  display: none;
+}
+
+// Checkstyle messages.
+.pift-ci-checkstyle {
+  thead th {
+    padding: 0 inherit 0 inherit;
+  }
+
+  .pift-ci-line-column {
+    width: 6em;
+    text-align: right;
+    vertical-align: top;
+  }
+
+  .pift-ci-file {
+    background: $new-lt-gray;
+  }
+
+  .js & {
+    display: none;
+  }
+}
+
+// History.
+.pift-history td {
+  border: 0;
+  vertical-align: middle;
+
+  &.active {
+    background-color: $new-gray;
+  }
+}

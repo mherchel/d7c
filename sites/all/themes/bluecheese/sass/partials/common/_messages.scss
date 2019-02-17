@@ -1,0 +1,203 @@
+// Messages
+.help,
+div.messages,
+div.warning,
+#block-system-help {
+  min-height: 1em; // prevents divs from cutting off the icon (rare)
+  padding: 1em 1em 1em 3.5em;
+  a {
+    font-weight: bold;
+  }
+}
+
+div.messages {
+  margin-bottom: 10px;
+  ul {
+    margin: 0; // Override core style.
+  }
+}
+
+div.messages-multiple {
+  padding-bottom: 0;
+  padding-left: 4.5em;
+}
+
+div.messages-status {
+  background: $messages-status $icon-success 10px 14px no-repeat;
+}
+div.messages-status ul li {
+  list-style-image: $dot-green;
+}
+
+// Help messages
+.help,
+#block-system-help {
+  background: $messages-help $icon-help 10px 14px no-repeat; // Dark Blue 20%  @todo: standardize color, change graphic, add sprite
+  margin-bottom: 20px;
+  ul li {
+    list-style-image: $dot-blue; // @todo: change graphic, add sprite
+  }
+}
+
+div.more-help-link {
+  margin-bottom: .5em;
+}
+
+// Warnings
+
+// Appears at bottom of forms
+div.warning {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+// Asterisk
+span.warning {
+  color: $asterisk-warning; // @todo: standardize color
+  margin-left: .5em;
+}
+
+div.warning span.warning {
+  display: none; // hide asterisk inside warning div (redundant)
+}
+
+div.messages-warning,
+div.warning {
+  background: $messages-warning $icon-warning 10px 14px no-repeat;
+}
+div.messages-warning ul li {
+  list-style-image: $dot-yellow;
+}
+
+div.messages-error, div.error {
+  background: $messages-error $icon-error 10px 14px no-repeat;
+}
+div.messages-error ul li {
+  list-style-image: $dot-red;
+}
+div.error {
+  padding: 1em 1em 1em 2.5em;
+}
+
+.deprecated,
+.incomplete,
+.out-of-date {
+  background: $new-lt-yellow;
+  border: 2px solid $new-yellow;
+  border-left-width: 1em;
+  padding: .8em 1em;
+}
+
+.click-to-tweet-box {
+  border: 2px dashed $new-green;
+  padding: .8em 1em;
+  margin-bottom: 1em;
+
+  p:last-child {
+    text-align: right;
+  }
+
+  @include breakpoint($medium) {
+    @include squish(1, 1, 8);
+  }
+}
+
+.note {
+  background: $new-lt-gray;
+  border-left: .5em solid $new-gray;
+  margin-bottom: (18em / 13);
+  padding: 1em;
+}
+
+.note-tip {
+  background: $new-lt-gray;
+  margin-bottom: (18em / 13);
+  min-height: 4em;
+  padding: 1em 1em 1em 4em;
+  position: relative;
+
+  &:before {
+    background: url(../images/icon-w-bulb.svg) no-repeat center center / 2.25em $new-blue;
+    border-radius: 10em;
+    content: ' ';
+    position: absolute;
+    top: .5em;
+    left: .5em;
+    width: 3em;
+    height: 3em;
+  }
+}
+
+.note-warning {
+  background: url(../images/bg-gray-blueprint.png) 3em 0 $new-lt-gray;
+  border-right: 2px solid $new-gray;
+  border-bottom: 2px solid $new-gray;
+  margin-bottom: (18em / 13);
+  padding: 1em 1em 1em 4em;
+  position: relative;
+
+  &:before {
+    content: ' ';
+    background: $new-orange;
+    background-image: repeating-linear-gradient(-25deg, $new-orange, $new-orange 1em, $new-lt-orange 1em, $new-lt-orange 2em);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: -2px;
+    width: 3em;
+  }
+}
+
+.note-version {
+  background: url(../images/bg-white-blueprint.png);
+  border-right: 2px solid $new-lt-gray;
+  margin-bottom: (18em / 13);
+  padding: 1em 1em (1em + .5) 4em;
+  position: relative;
+
+  > h4:first-child {
+    background: $new-blue;
+    color: $white;
+    line-height: 2.5em;
+    margin: -1em calc(-1em - 2px) 1em -4em;
+    padding: 0 1em;
+  }
+
+  &:after {
+    content: ' ';
+    background: $new-blue;
+    position: absolute;
+    left: 0;
+    right: -2px;
+    bottom: 0;
+    height: .5em;
+  }
+}
+
+.click-to-tweet-box,
+.note,
+.note-tip,
+.note-warning,
+.note-version {
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+#drupalorg-crosssite-gdpr {
+  background: $new-dk-blue;
+  box-shadow: 0 2px 2px 1px rgba(0, 0, 0, .2);
+  color: $white;
+  padding: 1em;
+  text-align: center;
+  z-index: 1000;
+
+  a, a:visited, a:active {
+    color: $new-lt-blue;
+  }
+}
+
+#drupalorg-crosssite-gdpr-edit {
+  background: $new-lt-gray;
+  padding: 1em;
+}

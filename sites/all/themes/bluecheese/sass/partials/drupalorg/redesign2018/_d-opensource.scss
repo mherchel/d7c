@@ -1,0 +1,10 @@
+.panel-pane.pane-fieldable-panels-pane { // Overwrite bluecheese styles
+  &.d-opensource {
+    .fieldable-panels-pane {
+      background-color: $new-dk-blue;
+    }
+    .cta-text {
+      width: 100% !important;
+    }
+  }
+}

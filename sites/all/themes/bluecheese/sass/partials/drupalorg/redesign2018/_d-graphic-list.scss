@@ -1,0 +1,40 @@
+.panel-pane.pane-fieldable-panels-pane { // Overwrite bluecheese styles
+  &.d-graphic-list  {
+    h2 {
+      text-align: center
+    }
+    ul {
+      margin: 0 !important;
+      padding: 0 !important;
+      @include breakpoint($medium) {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      li {
+        list-style: none;
+        margin-bottom: 1.5em;
+        margin-top: 1.5em;
+        padding-left: 2.5em;
+        padding-right: 1em;
+        min-height: 2em;
+        position: relative;
+        @include breakpoint($medium) {
+          width: 50%;
+        }
+        @include breakpoint($extra-large) {
+          width: 33.3%;
+        }
+        &::before {
+          background: url('../images/redesign2018/icon-list.svg') no-repeat center center;
+          content: '';
+          display: block;
+          height: 2em;
+          left: 0;
+          position: absolute;
+          top: -.25em;
+          width: 2em;
+        }
+      }
+    }
+  }
+}

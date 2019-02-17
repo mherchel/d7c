@@ -1,0 +1,338 @@
+#nav-content li.active,
+#nav-content li.active-parent a {
+  @include breakpoint($medium) {
+    background-color: $white;
+    border: 1px solid $new-gray;
+    border-bottom: 0;
+    @include border-radius(7px 7px 0 0);
+  }
+}
+
+// Main top navigation
+#nav-header {
+  background: $new-blue;
+  @include clearfix;
+  @include new-font;
+  font-size: (15em / 13);
+  min-height: (18em / 15); // 18px, minimum height when links not present.
+  overflow: visible;
+
+  ul {
+    padding: 0;
+  }
+
+  a {
+    color: $white;
+    display: block;
+    margin: 0.333333em 0.75em;
+    line-height: 60px;
+  }
+
+  ul li {
+    list-style-image: none;
+    list-style-type: none;
+  }
+
+  // Search form.
+  input {
+    font-size: 1em;
+  }
+
+  .block-search {
+    float: right;
+    line-height: 4.5em;
+    position: relative;
+    z-index: 1;
+
+    .form-submit {
+      margin: 0.333333em 0.75em;
+      width: 32px;
+      height: 60px;
+      vertical-align: middle;
+    }
+
+    ::placeholder {
+      color: $new-dk-gray;
+      opacity: 1; // Accessibility fix.
+    }
+    :-ms-input-placeholder {
+      color: $new-dk-gray;
+    }
+  }
+
+  .form-item-search-block-form {
+    display: inline-block;
+    width: 0;
+    position: absolute;
+    right: 100%;
+  }
+
+  input[type="text"] {
+    background: $new-lt-blue;
+    border: none;
+    border-radius: 3px;
+    @include new-font;
+    display: none;
+    outline: 0;
+    padding: .5em .75em;
+    width: 100%;
+  }
+
+  &.search-expanded {
+    #block-system-main-menu,
+    .menu-nav {
+      filter: blur(3px);
+      opacity: .2;
+      transition: all .3s;
+    }
+
+    .form-item-search-block-form {
+      width: 15em;
+      transition: width .3s;
+      @include breakpoint (0 $small) {
+        max-width: 50vw;
+      }
+    }
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      #block-system-main-menu,
+      .menu-nav,
+      .form-item-search-block-form {
+        transition: unset;
+      }
+    }
+
+    input[type="text"] {
+      display: inline;
+    }
+  }
+
+  a[title='Try Drupal'] {
+    background: $new-green;
+    display: inline-block;
+  }
+
+  @include breakpoint($extra-large) {
+    ul li {
+      float: left;
+      margin: 0;
+      padding: 0;
+    }
+
+    a:hover,
+    a:focus,
+    .active-trail a {
+      color: $new-lt-blue;
+      text-decoration: none;
+      &[title='Try Drupal'] {
+        color: $white;
+      }
+    }
+
+    a[title='Try Drupal'] {
+      line-height: 30px;
+      margin-top: 20px;
+      margin-bottom: 1.33em;
+      padding: 0 .75em;
+    }
+  }
+}
+
+@include breakpoint($extra-large) {
+  #block-system-main-menu {
+    float: left;
+
+    // Drupal.org home
+    .first a[href*="home"] {
+      background: url(../images/icon-w-drupal.svg) transparent no-repeat center center / contain;
+      display: inline-block;
+      margin-left: 0;
+      width: 38px;
+      text-indent: -9999px;
+    }
+
+    li {
+      > div.menu-block {
+        ul {
+          display: none;
+          position: absolute;
+          z-index: 400;
+          background: $white;
+
+          a {
+            color: $new-blue;
+            margin: 0;
+            padding: 0 1em;
+            width: 11em;
+
+            &:hover,
+            &:focus {
+              background: $new-lt-gray;
+            }
+          }
+        }
+      }
+    }
+
+    .expanded {
+      &:hover,
+      &:focus,
+      &.menu-expanded {
+        background: $white;
+
+        > a {
+          background: $white;
+          color: $black;
+        }
+
+        > div.menu-block ul {
+          display: flex;
+          flex-direction: column;
+          box-shadow: 0 4px 4px rgba(0, 0, 0, .4);
+        }
+      }
+    }
+  }
+}
+
+#block-system-user-menu {
+  float: right;
+  overflow: visible;
+  .button {
+    display: block;
+    margin-right: -.5em;
+    padding: 0 .5em;
+    position: relative;
+    width: 60px;
+
+    // Open menu link.
+    > a {
+      margin: 0;
+      padding: 0.333333em 0;
+      text-align: center;
+    }
+
+    // User icon.
+    img {
+      max-width: 40px;
+      max-height: 40px;
+      vertical-align: middle;
+    }
+
+    ul {
+      background-color: $white;
+      position: absolute;
+      right: 0;
+      z-index: 6;
+      display: none;
+      a {
+        color: $new-blue;
+        margin: 0;
+        padding: 0 1em;
+        width: 11em;
+        &:hover,
+        &:focus {
+          background-color: $new-lt-gray;
+        }
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &.menu-expanded {
+      background: $white;
+
+      ul {
+        box-shadow: 0 4px 4px rgba(0, 0, 0, .4);
+        display: block;
+      }
+    }
+
+    &.default:hover,
+    &.default:focus,
+    &.default.menu-expanded {
+      background: url(../images/icon-blue-user.svg) $white no-repeat center center / 40px 40px;
+
+      img {
+        width: 0;
+      }
+    }
+  }
+
+  .person img {
+    border-radius: 20px;
+    border: 2px solid white;
+    background: white;
+  }
+}
+
+// Content Navigation Tabs
+#nav-content ul {
+  @include pie-clearfix();
+  display: block;
+  border: 0;
+  border-bottom: 1px solid $new-gray;
+  padding: 0;
+  margin-left: 0;
+  margin-bottom: 1.154em;
+}
+
+#nav-content ul li {
+  float: left;
+  margin-bottom: -1px;
+}
+
+#nav-content ul li a {
+  color: $new-blue;
+  display: block;
+  float: left;
+  height: 32px;
+  padding: 0;
+  margin-right: 1.384614em;
+  @include breakpoint($medium) {
+    padding: 5px 11px 0 11px;
+    padding: 4px 12px 5px 12px;
+    margin-right: 0;
+  }
+}
+
+#nav-content li.active a.active,
+#nav-content li.active-parent a {
+  padding: 0;
+  margin-right: 1.384614em;
+  @include breakpoint($medium) {
+    padding: 0.307692em 0.692307em 0.846153em 0.692307em;
+    margin-right: 0;
+  }
+}
+
+#nav-content li.active a.active,
+#nav-content li.active-parent a,
+#nav-content li a:hover,
+#nav-content li a:focus,
+#nav-content li.active-parent a  {
+  color: $black;
+}
+
+#nav-content li a:hover,
+#nav-content li a:focus, {
+  text-decoration: none;
+}
+
+// Section menus & navigation between documentation sections.
+.pane-og-menu-og-single-menu-block,
+.node-type-section .documentation-section-menu,
+.node-type-page .documentation-section-menu {
+  background: $new-lt-gray;
+  margin-bottom: (18em/13);
+}
+
+#content .pane-og-menu-og-single-menu-block {
+  // No bullets for top-level menu.
+  .pane-content > .menu {
+    padding-left: 0;
+    > li {
+      list-style: none;
+    }
+  }
+}

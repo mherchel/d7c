@@ -1,0 +1,196 @@
+// Organization node layout
+.node-organization {
+  @media all and (min-width: 540px) {
+    .intro {
+      @include span-columns(3);
+    }
+
+    .main {
+      @include span-columns(5);
+    }
+
+    .aside {
+      @include span-columns(4 omega);
+    }
+  }
+
+  &.node-teaser {
+    margin-top: (27em / 13);
+    > h2 {
+      // Logos replace titles in organization listings, only the top-level,
+      // another h2 is added in place of missing logo.
+      display: none;
+    }
+    @include breakpoint(max-width $small) {
+      .field-name-field-logo {
+        a {
+          width: 66.66%;
+          text-align: center;
+          display: block;
+        }
+        img {
+          max-height: (135em / 13);
+          width: auto;
+        }
+      }
+      .field-name-field-organization-support {
+        img {
+          width: 33.33%;
+        }
+      }
+    }
+    @include breakpoint($small) {
+      .field-name-field-logo {
+        @include span-columns(3, 8);
+        a {
+          width: 100%;
+          text-align: center;
+          display: block;
+        }
+        img {
+          max-height: (135em / 13);
+          width: auto;
+        }
+      }
+      .contributions {
+        @include span-columns(3, 8);
+      }
+      .field-name-field-organization-support {
+        @include span-columns(2 omega, 8);
+        img {
+          width: 66.66%;
+        }
+      }
+    }
+  }
+}
+
+.view-drupalorg-training {
+  @media all and (min-width: 540px) {
+    .intro {
+      @include span-columns(3,8);
+    }
+    .main {
+      @include span-columns(5 omega,8);
+    }
+  }
+}
+
+.view-drupalorg-supporting-technologies {
+  @media all and (min-width: 540px) {
+    .intro {
+      @include span-columns(2,8);
+    }
+    .main {
+      @include span-columns(6 omega, 8);
+    }
+  }
+}
+
+// Services view
+.view-drupalorg-organizations .view-header {
+  @include clearfix;
+  @media all and (min-width: 540px) {
+    .nav {
+      @include span-columns(3, 3);
+    }
+
+    .nav-column {
+      @include span-columns(1, 3);
+      &:last-child {
+        @include omega;
+      }
+    }
+  }
+
+  h3 {
+    margin-top: 0;
+  }
+}
+
+#content .view-drupalorg-organizations .view-header ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+// hide JS actions
+.view-drupalorg-organizations .view-header .show-link,
+.view-drupalorg-organizations .view-header .hide-link {
+  display: none;
+}
+.node-organization .website img {
+  display: block;
+}
+
+#content .node-organization dd {
+  padding-left: 0;
+}
+
+// Users view
+.view-users-in-organization {
+  .views-field-picture {
+    @include clearfix;
+
+    img {
+      @include span-columns(2, 3);
+      border-radius: 500px;
+    }
+  }
+  .views-row {
+    margin-bottom: (18em / 13);
+    @include breakpoint($small $medium) {
+      @include span-columns(6);
+      @include nth-omega(2n);
+      &:nth-child(2n+1) {
+        clear: both;
+      }
+    }
+    @include breakpoint($medium) {
+      @include span-columns(3);
+      @include nth-omega(4n);
+      &:nth-child(4n+1) {
+        clear: both;
+      }
+    }
+  }
+}
+
+// Training view
+.view-drupalorg-supporting-technologies,
+.view-drupalorg-training {
+  .views-row {
+    @include span-columns(8 omega, 8);
+    margin-bottom: 1.385em;
+  }
+}
+
+#aside,
+#sidebar-first {
+  #block-block-40,
+  #block-block-42,
+  #block-block-46,
+  #block-block-62,
+  #block-menu-menu-hosting-types-menu {
+    background-color: $white;
+  }
+
+  #block-block-60 {
+    background-color: $white;
+    border-bottom: 1px solid $new-gray;
+  }
+}
+
+#aside #block-views-drupalorg-training-block-1 {
+  background: $white;
+}
+
+#block-views-drupalorg-training-block-1 {
+  a {
+    padding: .25em .5em .25em 1em;
+
+    &.active, &:hover, &:focus {
+      background: $new-dk-gray;
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}

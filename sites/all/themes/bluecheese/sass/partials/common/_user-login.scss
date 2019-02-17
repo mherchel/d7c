@@ -1,0 +1,60 @@
+@include breakpoint(max-width $small) {
+  .login-text {
+    margin-top: 1.5em;
+  }
+}
+
+@include breakpoint($small) {
+  // Put text on right side.
+  #user-login,
+  .login-text {
+    @include span-columns(6);
+  }
+  .login-text {
+    @include omega;
+  }
+}
+
+@include breakpoint(max-width $medium) {
+  // Do not float password widgets.
+  .password-strength, div.password-confirm {
+    float: none;
+  }
+}
+
+@include breakpoint($medium) {
+  // Show help on the right.
+  #user-register-form {
+    .form-item-mail, .form-item-name {
+      input {
+        display: inline;
+        margin-right: 1em;
+      }
+      .description {
+        display: inline;
+        color: inherit;
+        font-size: inherit;
+      }
+    }
+  }
+}
+
+#user-login, #user-pass, #user-register-form {
+  .form-text {
+    // Make widths consistent.
+    width: 25em;
+  }
+  .form-submit {
+    @include large-button;
+  }
+}
+.confirm-parent, .password-parent {
+  // Make room with larger fields. Can't go narrower to align simply in IE.
+  width: 44em;
+  max-width: 100%;
+}
+
+// Don't take up more than the screen width.
+div.form-item div.password-suggestions {
+  max-width: 100%;
+}

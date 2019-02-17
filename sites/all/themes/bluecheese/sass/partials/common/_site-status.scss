@@ -1,0 +1,14 @@
+#drupalorg-site-status {
+  background: $strong-red;
+  color: $white;
+  padding: .5em;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 2px 2px 1px rgba(68, 68, 68, .5);
+  z-index: 1;
+}
+
+#drupalorg-site-status a {
+  color: $white;
+  text-decoration: underline;
+}

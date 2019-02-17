@@ -1,0 +1,122 @@
+// On /security & /documentation
+.book-covers img {
+  margin: 0 .5em .5em 0;
+}
+
+// DrupalCI sponsorship.
+.ci-ad {
+  @include smaller;
+  align-items: center;
+  background: $new-lt-gray;
+  display: flex;
+  justify-content: space-around;
+  margin: .5em 0;
+  padding: .5em;
+
+  &, &:visited, &:active {
+    color: $new-dk-gray;
+  }
+  &:hover, &:focus {
+    text-decoration: none;
+
+    strong {
+      text-decoration: underline;
+    }
+  }
+
+  img {
+    margin: 0 .5em;
+    max-height: 2em;
+  }
+
+  strong {
+    color: $new-blue;
+    font-weight: normal;
+  }
+}
+
+// Hosting listings.
+.view-hosting {
+  #content & ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+  }
+
+  li {
+    background: $new-lt-gray;
+    border: 1px solid $new-gray;
+    margin: 0 0 1em 0;
+  }
+
+  // Non-featured listings.
+  .attachment li {
+    background: $white;
+  }
+
+  a {
+    color: $black;
+    display: block;
+    padding: 1em;
+
+    &:hover, &:focus {
+      background: $new-gray;
+      text-decoration: none;
+    }
+  }
+
+  strong {
+    color: $new-blue;
+  }
+
+  .featured {
+    background: $new-dk-blue;
+    border-radius: 0 0 0 5px;
+    color: $white;
+    float: right;
+    margin: calc(-1em - 1px) calc(-1em - 1px) 0 0;
+    padding: .25em .5em;
+  }
+
+  img {
+    max-width: 50%;
+    max-height: 3em;
+    width: auto;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+#block-drupalorg-hosting-filter {
+  .filter {
+    a:before {
+      content: ' ';
+      display: inline-block;
+      border: 2px solid $new-gray;
+      border-radius: 4px;
+      margin: 0 .25em 0 0;
+      text-align: center;
+      vertical-align: bottom;
+      width: 1em;
+      height: 1em;
+    }
+
+    a.active {
+      color: $new-blue;
+    }
+
+    a.disabled {
+      color: $new-gray;
+    }
+
+    a.really-active {
+      color: $black;
+
+      &:before {
+        content: '✓';
+      }
+    }
+  }
+}

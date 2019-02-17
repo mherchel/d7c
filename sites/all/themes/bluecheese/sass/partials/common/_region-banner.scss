@@ -1,0 +1,66 @@
+// Announcement banner.
+#banner {
+  background: $new-lt-gray;
+  position: relative;
+  display: none;
+
+  .close {
+    text-indent: -9999px;
+    background: url(../images/icon-green-close.svg) no-repeat center center / contain;
+    display: block;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    right: 1em;
+    top: 1em;
+  }
+}
+
+#block-drupalorg-announcements {
+  @include new-font;
+  font-size: (16em / 13);
+  line-height: 1.45em;
+
+  .icon {
+    display: none;
+    float: left;
+    margin: -.3em 20px 0 0;
+    max-height: 60px;
+    max-width: 60px;
+
+    @include breakpoint($medium) {
+      display: block;
+    }
+  }
+
+  .announcement {
+    font-size: 1.25em;
+    margin: 0 auto;
+    min-height: 110px;
+    width: 100%;
+    max-width: 960px;
+    padding: 1.5em 1em;
+
+    @include breakpoint($medium) {
+      padding: 32px 80px;
+    }
+  }
+
+  .cta {
+    background: $new-green;
+    text-align: center;
+  }
+
+  a {
+    background: $new-dk-green;
+    color: $white;
+    display: inline-block;
+    font-size: 1.25em;
+    padding: 0.5em 6vw;
+
+    &:hover, &:focus {
+      background: darken($new-dk-green, 5%);
+      text-decoration: none;
+    }
+  }
+}

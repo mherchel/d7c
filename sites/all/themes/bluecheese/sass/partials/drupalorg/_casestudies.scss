@@ -1,0 +1,124 @@
+.view-drupalorg-casestudies {
+  table.views-view-grid {
+    td {
+      padding: 0 0 1.5em;
+    }
+
+    td {
+      @include span-columns(8,8);
+      text-align: center;
+      @include breakpoint($medium) {
+        @include span-columns(4,8);
+      }
+    }
+
+    td.col-last {
+      @include omega();
+    }
+  }
+
+  .views-field-term-node-tid {
+    color: $new-dk-gray;
+    font-size: 0.92307em; // 0.92307 * 13px = 12px
+  }
+}
+
+// Sidebar blocks
+#aside #block-block-52 {
+  background-color: $white;
+}
+
+#aside #block-views-drupalorg-casestudies-block-2, #aside #block-views-drupalorg-casestudies-block-4 {
+  background-color: $white;
+
+  .content {
+    @include breakpoint($small) {
+      @include column-count(2);
+    }
+    @include breakpoint($medium) {
+      @include column-count(1);
+    }
+  }
+
+  ul.views-summary li {
+    line-height: 1.5em;
+
+    a {
+      padding: 0.153846em 0.384615em 0.230769em 1em;
+    }
+
+    a.active, a:hover, a:focus {
+      background-color: $new-dk-gray;
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}
+
+// Slideshow
+#content .view-drupalorg-casestudies .item-list .pager {
+  text-align: center;
+}
+.view-drupalorg-casestudies .jcarousel-container {
+  background: $new-lt-gray;
+  padding: 18px 16px 9px;
+  margin-bottom: 20px;
+  @include span-columns(12);
+}
+.view-drupalorg-casestudies .jcarousel-container .views-field-title h2 {
+  margin-top: 1em;
+  float: left;
+}
+.view-drupalorg-casestudies .jcarousel-navigation {
+  @include breakpoint($medium) {
+    position: absolute;
+  }
+  right: 10px;
+  bottom: 20px;
+}
+.view-drupalorg-casestudies .jcarousel-navigation li {
+  float: left;
+  margin-right: 5px;
+}
+.view-drupalorg-casestudies .jcarousel-navigation li a {
+  color: $white;
+  background: $new-blue;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 999px;
+  display: block;
+}
+.view-drupalorg-casestudies .jcarousel-navigation li a:hover,
+.view-drupalorg-casestudies .jcarousel-navigation li.active a {
+  background: $new-dk-green;
+  text-decoration: none;
+}
+
+// Organization's case studies
+.view-organization-case-studies .views-row {
+  @include breakpoint($small) {
+    @include span-columns(4);
+    @include nth-omega(3n);
+    &:nth-child(3n+1) {
+      clear: both;
+    }
+  }
+  margin-bottom: (18em / 13);
+}
+
+// Case study node
+.node-type-casestudy {
+  .field-label {
+    font-weight: normal;
+    font-size: 1.5em;
+    line-height: 1.2em;
+    margin: 0 0 0.45em;
+  }
+
+  .field-name-field-link {
+    margin: 1em 0;
+    font-weight: bold;
+  }
+}

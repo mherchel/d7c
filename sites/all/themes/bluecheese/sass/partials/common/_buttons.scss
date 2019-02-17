@@ -1,0 +1,94 @@
+// action-buttons should be big green boxes
+input.action-button,
+a.action-button {
+  display: inline-block;
+  color: $white;
+  background: $new-green;
+  border: 2px solid $new-green;
+  padding: .5em 2em;
+  font-size: 1.077em; // 14pt
+
+  &:focus, &:hover {
+    text-decoration: none;
+    background: $new-dk-green;
+    border: 2px solid $new-dk-green;
+  }
+}
+
+// Follow button
+#aside .block-message-follow {
+  background: $white;
+  .block-inner {
+    padding: 0;
+  }
+}
+.flag-project-issue-follow {
+  display: block;
+  .flag {
+    background: url(../images/icon-green-star.svg) transparent left center / 1.5em no-repeat;
+    display: inline-block;
+    padding: 1em 0.5em 1em 2em;
+    &:hover,
+    &:focus {
+      background-image: url(../images/icon-green-star-fill.svg);
+    }
+  }
+  .unflag-action {
+    background: url(../images/icon-green-star-fill.svg) transparent left center / 1.5em no-repeat;
+    color: $new-dk-gray;
+    &:hover,
+    &:focus {
+      background-image: url(../images/icon-green-star.svg);
+    }
+  }
+  .flag-tracker-count {
+    color: $new-dk-gray;
+  }
+}
+.message-follow-following-context {
+  background: url(../images/icon-dk-gray-star-fill.svg) transparent left center / 1.5em no-repeat;
+  color: $new-dk-gray;
+  display: block;
+  padding: 1em 0 1em 2em;
+  a {
+    color: $new-dk-gray;
+    &:hover, &:focus {
+      color: $new-blue;
+    }
+  }
+}
+
+a.primary-button {
+  background: $new-dk-blue;
+  border: 2px solid $new-dk-blue;
+  color: $white;
+  display: inline-block;
+  margin: 0 1.5em .5em 0;
+  padding: .5em 2em;
+
+  &:hover {
+    background: $new-blue;
+    border-color: $new-blue;
+    text-decoration: none;
+  }
+}
+a.secondary-button {
+  border: 2px solid $new-blue;
+  color: $new-blue;
+  display: inline-block;
+  margin: 0 1.5em .5em 0;
+  padding: .5em 2em;
+
+  &:hover {
+    background: $new-blue;
+    border-color: $new-blue;
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+a.primary-button, a.secondary-button {
+  &:last-of-type {
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,11 @@
+// Support page
+@media all and (min-width: 760px) {
+  .support-wrapper {
+    .support-first, .support-second {
+      @include span-columns(6);
+    }
+    .support-second {
+      @include omega;
+    }
+  }
+}

@@ -1,0 +1,362 @@
+.node-type-guide, .node-type-documentation {
+  .messages {
+    margin: 2em auto 0 auto;
+    max-width: 960px;
+  }
+
+  h1 {
+    @include breakpoint($medium) {
+      padding-right: 166px;
+
+      [dir=rtl] & {
+        padding-right: 0;
+      }
+    }
+  }
+
+  #tabs.js {
+    height: 2.25em;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+
+    .toggle {
+      background: url(../images/icon-w-dropdown.svg) $new-dk-green center center / 1.5em no-repeat;
+      display: block;
+      float: right;
+      text-indent: -9999px;
+      width: 36px;
+      height: 2.25em;
+    }
+    &.clicked {
+      overflow: visible;
+    }
+    ul {
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+      background-color: $new-green;
+      color: $white;
+      position: absolute;
+      width: 100%;
+    }
+    li {
+      float: none;
+      margin: 0.5em 0;
+      a {
+        color: $white;
+        line-height: 2.25em;
+        padding: 0 0 0 3em;
+        &[href$="/edit"] {
+          background: url(../images/icon-w-pencil.svg) transparent left 0.75em center / 1.5em auto no-repeat;
+        }
+        &[href$="/discuss"] {
+          background: url(../images/icon-w-discuss.svg) transparent left 0.75em center / 1.5em auto no-repeat;
+        }
+        &[href$="/revisions"] {
+          background: url(../images/icon-w-clock.svg) transparent left 0.75em center / 1.5em auto no-repeat;
+        }
+        &[href$="/group"] {
+          background: url(../images/icon-w-gear.svg) transparent left 0.75em center / 1.5em auto no-repeat;
+        }
+        &[href^="/node/add"] {
+          background: url(../images/icon-w-plus.svg) transparent left 0.75em center / 1.5em auto no-repeat;
+        }
+      }
+      &.active, &:hover, &:focus {
+        a {
+          background-color: transparent;
+          border-radius: 0;
+        }
+      }
+      &:hover {
+        a {
+          background-color: lighten($new-dk-green,7%);
+        }
+      }
+    }
+    @include breakpoint($medium) {
+      float: right;
+      margin: -3.75em 0 0 0;
+      width: 150px;
+    }
+  }
+
+  .field-name-field-tags {
+    a {
+      background-color: $new-lt-gray;
+      color: $new-dk-gray;
+      padding: 0.25em 0.5em;
+      margin-right: 0.5em;
+      text-decoration: none;
+      line-height: 2;
+      &:hover, &:focus {
+        background-color: darken($new-lt-gray, 5%);
+      }
+    }
+    .field-item {
+      display: inline-block;
+    }
+  }
+
+  .panel-layout {
+    max-width: 100%;
+
+    .container.content {
+      padding: 2em 0px;
+    }
+
+    .container-inner {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      max-width: 960px;
+      padding: 0px 10px;
+    }
+
+    .panel-pane {
+      padding: 0;
+    }
+  }
+
+  .pane-node-updated .pane-content {
+    display: inline;
+    padding: 0 .1em;
+
+    &:after, &:before {
+      clear: none;
+      content: '';
+      display: inline;
+    }
+  }
+
+  // Sidebars.
+  .top-right-content, .bottom-right-content {
+    @include breakpoint($medium) {
+      width: 30%;
+    }
+
+    .pane-title {
+      border-bottom: 2px solid $new-blue;
+      margin-top: 0;
+      padding-bottom: .25em;
+    }
+
+    .panel-pane {
+      margin-bottom: 2em;
+    }
+  }
+
+  .pane-og-menu-og-single-menu-block {
+    background: transparent;
+
+    li {
+      padding-bottom: .5em;
+
+      a:hover, a:focus {
+        color: $new-dk-blue;
+        text-decoration: none;
+      }
+
+      &.active-trail a {
+        background: $new-gray;
+        color: $new-dk-gray;
+        padding: 0 2em 0 1.25em;
+        margin-left: -1.25em;
+        position: relative;
+        display: inline-block;
+
+        &:after {
+          right: 100%;
+          top: 50%;
+          border: solid transparent;
+          content: " ";
+          height: 0;
+          width: 0;
+          position: absolute;
+          pointer-events: none;
+          border-right-color: $new-gray;
+          border-width: .7em;
+          margin-top: -.7em;
+        }
+      }
+    }
+  }
+
+  &.page-node-edit, &.page-node-revisions, &.page-node-delete {
+    #content {
+      padding: 2em 0px;
+      #content-inner {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        max-width: 960px;
+        padding: 0px 10px;
+      }
+    }
+    .page-title-wrapper {
+      float: none;
+    }
+  }
+
+  // Related content display
+  .pane-documentation-related-content-related-content-pane {
+    padding-top: 2em;
+
+    .pane-title {
+      color: $new-dk-gray;
+      border-bottom: solid 2px darken($new-lt-gray, 5%);
+      padding-bottom: 0.25em;
+      margin-bottom: 0.45em;
+    }
+
+    .node {
+      padding-bottom: 2em;
+
+      h2 {
+        font-size: 1.5em;
+        padding-bottom: 0.25em;
+      }
+
+      .field-name-field-tags {
+        margin-top: 0.5em;
+      }
+    }
+
+    @include breakpoint($medium) {
+      .view-content>div {
+        @include span-columns(4, 8);
+        @include nth-omega(2n);
+      }
+    }
+  }
+}
+
+.node-type-documentation {
+  h1 {
+    // Snug up Last updated …
+    margin: 0;
+  }
+  .pane-node-body {
+    margin: 1em 0 2em 0;
+  }
+  .pane-node-updated {
+    margin-bottom: 2.5em;
+  }
+  #tabs.js {
+    @include breakpoint($medium) {
+      margin-top: -2.5em;
+    }
+  }
+}
+
+.node-type-guide {
+  h1 {
+    margin: 0 0 .55em;
+  }
+  .pane-section-contents {
+    padding-top: 2em;
+    section {
+      margin-bottom: 1em;
+      padding: 0.5em 1em;
+      background-color: $new-lt-gray;
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+    h2 {
+      font-size: 1.5em;
+    }
+  }
+}
+
+.view-group-maintainers {
+  .views-row {
+    float: left;
+    padding-right: 1em;
+  }
+
+  img {
+    border-radius: 40px;
+  }
+}
+
+@include breakpoint($medium) {
+  .page-node-discuss .pane-message-follow-follow {
+    float: right;
+    margin: -3.5em 0 0 0;
+  }
+}
+
+#block-drupalorg-search-documentation {
+  background: $new-md-blue;
+  padding: .5em;
+
+  .form-submit {
+    margin-top: .5em;
+    width: 1.5em;
+    @include breakpoint($medium) {
+      width: 2.5em;
+    }
+  }
+
+  ::placeholder {
+    color: $white;
+    opacity: 1; // Accessibility fix.
+  }
+  :-ms-input-placeholder {
+    color: $white;
+  }
+
+  input[type="text"] {
+    background: transparent;
+    border: none;
+    color: $white;
+    float: left;
+    font-size: 1.5em;
+    font-weight: 300;
+    line-height: 1.4em;
+    margin: .2em 0 0 0;
+    width: calc(100% - 1.5em);
+  }
+}
+
+// Menus within guides listed on guide pages.
+#content ul.guide-contents {
+  margin: -1em 0 0 0;
+}
+
+#content ul.guide-contents,
+#content .left-content ul.menu {
+  padding: 0;
+}
+
+.left-content .menu,
+.guide-contents {
+  @include smaller;
+  line-height: 1.5em;
+
+  @include breakpoint($small) {
+    column-count: 2;
+    column-gap: 20px;
+  }
+
+  li {
+    break-inside: avoid;
+    list-style: none;
+    padding-bottom: .5em;
+  }
+}
+
+// Navigation between documentation sections.
+.documentation-section-menu {
+  .pane-title {
+    margin: 0;
+  }
+
+  h4 a, li {
+    color: $new-dk-gray;
+  }
+
+  li {
+    margin-left: 1.5em;
+  }
+}

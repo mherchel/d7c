@@ -1,0 +1,107 @@
+.panel-pane.pane-fieldable-panels-pane { // Overwrite bluecheese styles
+  &.d-hero {
+    overflow: hidden;
+    position: relative;
+    .fieldable-panels-pane {
+      background-color: transparent;
+      display: flex;
+      padding: 3em 2em 4em;
+      @include breakpoint($medium) {
+        padding-bottom: 3em;
+      }
+    }
+    .field.field-name-field-cta-graphic {
+      padding: 0;
+      img {
+        display: inline-block;
+        max-width: 25em;
+      }
+    }
+    .d-animations-settings {
+      bottom: .5rem;
+      position: absolute;
+      right: 1rem;
+      z-index: 15;
+      .d-animations-checkbox {
+        background: transparent;
+        align-items: center;
+        color: $white;
+        font-size: .875rem;
+        display: flex;
+        border: 0;
+        margin: 0;
+        padding: .25em;
+        #d-animations-label {
+          opacity: 0;
+          padding-left: .5rem;
+          padding-right: .5rem;
+        }
+        &:hover,
+        &:focus {
+          background-color: rgba($black,.35);
+          #d-animations-label {
+            opacity: .85;
+          }
+        }
+        &::after {
+          background-image: url('../images/redesign2018/icon-anim.svg');
+          background-repeat: no-repeat;
+          content: '';
+          display: block;
+          height: 30px;
+          margin-top: 2px;
+          width: 30px;
+        }
+        &[aria-checked="false"]::after {
+          background-position: 0 -30px;
+        }
+      }
+    }
+    @include breakpoint($medium) {
+      // If large devices, show button on hero cover hover.
+      &:hover .d-animations-checkbox {
+        background-color: rgba($black,.35);
+        #d-animations-label {
+          opacity: .85;
+        }
+      }
+    }
+    // Morph background
+    .pane-content {
+      position: relative;
+      z-index: 5;
+    }
+    .pane-graphic {
+      background: url('../images/redesign2018/bg-shapes.svg') $new-dk-blue no-repeat center/cover;
+      left: 0;
+      bottom: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      #animation_container {
+        width:100%!important;
+        height:auto!important;
+      }
+      canvas {
+        bottom: 0;
+        display: block;
+        height:auto!important;
+        left: 50%;
+        min-width: 1440px;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width:100%!important;
+      }
+      #dom_overlay_container {
+        display: block;
+        left: 0;
+        overflow:hidden;
+        pointer-events:none;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+    }
+  }
+}

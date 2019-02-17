@@ -1,0 +1,194 @@
+// User profile pages, /user/N
+.profile {
+  h3 {
+    border-bottom: none; // Reset core style.
+    clear: both;
+  }
+
+  // Membership badges
+  .da-membership-badge {
+    @include span-columns(2,3);
+    img {
+      width: 100%; // IE SVG scaling.
+    }
+  }
+
+  .user-picture-container {
+    float: right;
+    margin: 0 0 1em 0;
+  }
+  .user-picture {
+    // Reset core styles.
+    float: none;
+    margin: 0;
+
+    img {
+      display: block;
+    }
+  }
+  .new-user {
+    @include new-user-badge;
+    line-height: 2.4;
+    width: $user-picture-width;
+  }
+}
+
+@include breakpoint($small) {
+  .profile {
+    // Membership badges
+    .da-membership-badge {
+      @include span-columns(1, 4);
+    }
+
+    .da-membership {
+      @include span-columns(3 omega, 4);
+    }
+  }
+}
+
+@include breakpoint($medium) {
+  // User profile pages, /user/N
+  .profile {
+    .main {
+      @include span-columns(6);
+    }
+
+    .contact {
+      @include span-columns(3);
+
+      .user-picture-container {
+        float: none;
+      }
+
+      .field {
+        margin-bottom: 1.3846em;
+      }
+      .field-name-field-organization-name, .field-name-field-job-title {
+        margin-bottom: 0;
+      }
+      .field-name-field-organizations>.field-items>.field-item {
+        margin-bottom: .6923em;
+      }
+    }
+
+    .aside {
+      @include span-columns(3 omega);
+
+      .da-membership-badge {
+        @include span-columns(2, 3);
+      }
+
+      // Grid of user pictures.
+      .field-name-field-mentors {
+        @include clearfix;
+        .field-item {
+          @include span-columns(1, 3);
+          @include nth-omega(3n);
+          margin-bottom: gutter(3);
+          line-height: 0;
+        }
+      }
+    }
+  }
+}
+
+// Edit form.
+.field-name-field-demographics {
+  background: $new-lt-gray;
+  padding: .692em;
+}
+
+// Starred projects.
+.view-starred-projects {
+  @include breakpoint($medium) {
+    @include span-columns(8);
+  }
+
+  h3 {
+    display: inline;
+  }
+
+  .stars {
+    @include smaller;
+    background: url(../images/icon-dk-gray-star-fill.svg) transparent left center / 1em no-repeat;
+    display: inline-block;
+    padding: .3em 0 .1em 1.25em;
+    margin-left: .5em;
+  }
+}
+
+// User listings.
+.view-individual-members,
+.view-user-mentees,
+.field-name-field-mentors {
+  img {
+    border-radius: 500px;
+  }
+}
+
+.view-individual-members {
+  .form-text {
+    width: 15em;
+  }
+
+  .description {
+    display: none;
+  }
+
+  .views-exposed-widgets {
+    margin-bottom: 1em;
+  }
+
+  .views-row {
+    margin-bottom: 1.5em;
+
+    @include breakpoint(max-width $small) {
+      @include span-columns(6);
+      @include nth-omega(2n);
+      &:nth-child(2n+1) {
+        clear: both;
+      }
+    }
+    @include breakpoint($small $medium) {
+      @include span-columns(2, 8);
+      @include nth-omega(4n);
+      &:nth-child(4n+1) {
+        clear: both;
+      }
+    }
+    @include breakpoint($medium) {
+      @include span-columns(2, 12);
+      @include nth-omega(6n);
+      &:nth-child(6n+1) {
+        clear: both;
+      }
+    }
+  }
+}
+
+#drupalorg-membership-form {
+  section {
+    background: $new-lt-gray;
+    margin: 0 0 1em 0;
+    padding: 1em;
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+
+    fieldset {
+      background: $white;
+    }
+  }
+
+  @include breakpoint($small) {
+    .memberships {
+      @include span-columns(7);
+    }
+
+    .other {
+      padding: 1em 0 0 0;
+      @include span-columns(5 omega);
+    }
+  }
+}

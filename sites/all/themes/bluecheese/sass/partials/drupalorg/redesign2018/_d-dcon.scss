@@ -1,0 +1,34 @@
+.panel-pane.pane-fieldable-panels-pane { // Overwrite bluecheese styles
+  &.d-dcon {
+    background: url('../images/redesign2018/bg-diagonal-pattern.png') repeat #c5cdcf;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    position: relative;
+    @include breakpoint($medium) {
+      &::before {
+        background: url('../images/redesign2018/bg-drupalcon.svg') no-repeat center top;
+        background-size: cover;
+        content: '';
+        display: block;
+        position: absolute;
+        height: 50%;
+        width: 100%;
+        bottom: 1em;
+      }
+    }
+    .field-name-field-cta-link a {
+      @extend .primary-button;
+      border: 0;
+      color: $white;
+    }
+    .fieldable-panels-pane {
+      background-position: center right;
+      @include breakpoint($medium) {
+        background-position: initial;
+      }
+    }
+    .pane-content-inner {
+      position: relative;
+    }
+  }
+}

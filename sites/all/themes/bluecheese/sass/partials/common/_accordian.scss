@@ -1,0 +1,46 @@
+.accordion-processed {
+  > h3 {
+    margin: .5em 0 0 0;
+
+    button {
+      // Reset styles, cover the heading. Will not exist when JS is disabled.
+      background: url(../images/icon-w-dropdown.svg) $new-blue center right 1em / 1.5em no-repeat;
+      border: none;
+      color: $white;
+      display: block;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 1em 2.5em 1em 1em;
+      text-align: left;
+      width: 100%;
+
+      &:hover,
+      &:focus {
+        background-color: $new-dk-blue;
+      }
+    }
+  }
+
+  > .accordion-content {
+    background: $white;
+    // Height can not be transitioned, use max-height.
+    max-height: 250em;
+    overflow: auto;
+    padding: 1em;
+    transition: max-height .3s, opacity .3s ease-in;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      transition: unset;
+    }
+
+    &[hidden] {
+      // Allow transition animation, not supported with display: none.
+      display: block;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      padding: 0;
+      visibility: hidden;
+    }
+  }
+}

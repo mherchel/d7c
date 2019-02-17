@@ -1,0 +1,123 @@
+.panel-pane.pane-fieldable-panels-pane { // Overwrite bluecheese styles
+  &.d-persona {
+    margin-bottom: 1em;
+    margin-top: 1em;
+    &::before {
+      // Overwrite column background-color
+      background-color: $white;
+      bottom: 0;
+      content: '';
+      display: block;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: -1;
+    }
+    .fieldable-panels-pane {
+      background-color: transparent;
+      overflow: initial;
+      padding: 0;
+    }
+    .cta-text {
+      width: 100% !important;
+    }
+    .field-name-field-cta-body {
+      font-style: italic;
+    }
+    h2 {
+      margin-bottom: 0;
+      strong {
+        display: block;
+        font-size: 1.2em;
+      }
+      // Link.
+      a {
+        color: $new-dk-gray;
+        &::before {
+          bottom: 1rem;
+          content: '';
+          display: block;
+          left: .5rem;
+          position: absolute;
+          right: .5rem;
+          top: 1rem;
+        }
+        &:focus {
+          outline: 0;
+          &::before {
+            border: 1px dotted $new-dk-gray;
+          }
+        }
+      }
+    }
+    p {
+      margin-bottom: 0;
+      & + p {
+        margin-top: 1em;
+      }
+    }
+    .field-name-field-cta-link {
+      margin-top: 1em;
+    }
+    .field.field-name-field-cta-graphic {
+      left: 0;
+      padding: 0;
+      position: absolute;
+      right: 0;
+      transform: translateY(-100%);
+      @include breakpoint($medium) {
+        transform: translateY(-15vw);
+      }
+      @include breakpoint($extra-large) {
+        transform: translateY(-95%);
+      }
+      img {
+        max-width: 12em;
+        @include breakpoint($medium) {
+          max-width: 8em;
+        }
+        @include breakpoint($extra-large) {
+          max-width: 12em;
+        }
+      }
+    }
+    .field-name-field-cta-link a {
+      align-items: center;
+      border: 0;
+      display: flex;
+      font-weight: bold;
+      padding: 0 .75em;
+      text-transform: uppercase;
+      transition: color .25s ease-in-out;
+      &:hover, &:focus {
+        background-color: transparent;
+        border: 1px dotted $new-dk-blue;
+        color: $new-dk-blue;
+        outline: none;
+      }
+    }
+    // Animations.
+    .pane-graphic {
+      max-width: 20em;
+      margin: 0 auto;
+      svg {
+        display: block;
+        max-width: 100%;
+        &.personas-morph {
+          .end {
+            visibility: hidden;
+          }
+        }
+      }
+      .start {
+        fill: #0464a5;
+      }
+    }
+  }
+}
+
+// Fix for editing panels
+.panels-ipe-sort-container.ui-sortable .d-persona {
+  position: relative;
+}

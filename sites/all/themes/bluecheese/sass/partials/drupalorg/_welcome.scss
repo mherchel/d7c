@@ -1,0 +1,35 @@
+.page-welcome {
+  .form-item-field-organizations-und-0--weight {
+    display: none;
+  }
+  .user-picture {
+    @include span-columns(1, 6);
+  }
+  .form-item-files-picture-upload {
+    @include span-columns(5 omega, 6);
+  }
+  .form-item-timezone select {
+    width: 100%;
+  }
+
+  .field-name-field-demographics {
+    margin-bottom: 1em; // Keep separate from save button.
+  }
+
+  .form-submit {
+    @include large-button;
+    white-space: normal;
+  }
+
+  @include breakpoint($small) {
+    .group-left, .group-right {
+      @include span-columns(6);
+    }
+    .group-right {
+      @include omega();
+    }
+    .form-actions {
+      clear: both;
+    }
+  }
+}

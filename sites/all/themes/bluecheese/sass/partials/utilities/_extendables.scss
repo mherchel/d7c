@@ -1,0 +1,98 @@
+.clear {
+  clear: both;
+}
+.clearleft {
+  clear: left;
+}
+.clearright {
+  clear: right;
+}
+.right {
+  clear: right;
+  float: right;
+  margin: 0 0 0.692em 20px;
+}
+.left {
+  clear: left;
+  float: left;
+  margin: 0 20px 0.692em 0;
+}
+
+.icon-left {
+  clear: left;
+  float: left;
+  width: 2em;
+  margin: 0 .8em .692em 0;
+}
+
+.icon-inline {
+  height: 1.5em;
+  vertical-align: bottom;
+}
+
+.gray {
+  opacity: .5;
+}
+
+.aside {
+  // Keep text as a rectangular column instead of flowing around floats.
+  display: flex;
+  flex-direction: column;
+}
+
+@include breakpoint($small) {
+  .aside-half {
+    // Use half of the main content area.
+    @include span-columns(4 omega, 8);
+  }
+}
+@include breakpoint(max-width $small) {
+  .aside-half {
+    // Undo .left/.right.
+    float: none;
+    margin: 0;
+  }
+}
+
+img.no-clear {
+  clear: none;
+}
+
+%confirm-button {
+  margin-top: (9em / 13);
+
+  .undo {
+    background-color: $messages-warning;
+    margin-bottom: .5em;
+    padding: .5em;
+    text-align: center;
+  }
+
+  input {
+    margin-right: 0;
+    width: $user-picture-width;
+  }
+
+  .throbber {
+    margin-top: 0;
+  }
+}
+
+%button-link-secondary {
+  border: 2px solid $new-blue;
+  color: $new-blue;
+  display: inline-block;
+  font-size: 1.25em;
+  padding: 0.5em 1.75em;
+  text-decoration: none;
+
+  &:hover, &:focus, &.active {
+    background-color: $new-blue;
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+.button-link {
+  @extend %button-link-secondary;
+}

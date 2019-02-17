@@ -1,0 +1,155 @@
+.view-redesign-2018-case-studies {
+  color: $new-dk-gray;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: calc(960px + 8vw);
+  padding: 2em;
+  position: relative;
+  text-align: center;
+  @include breakpoint($medium) {
+    padding: 2em 4vw;
+  }
+  // No JS fall back
+  .view-content {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    & > .views-row {
+      max-width: 33.3%;
+      padding: .5em;
+    }
+  }
+  // Carousel style.
+  .view-slideshow {
+    display: block;
+    .views-row {
+      padding: .5em;
+    }
+  }
+  .btn-next,
+  .btn-prev {
+    background: transparent;
+    border: 0;
+    display: block;
+    font-size: 0;
+    overflow: hidden;
+    padding: .5rem;
+    position: absolute;
+    text-indent: -9999px;
+    top: 25%;
+    transform: translateY(-50%);
+    &::before {
+      background-position: center center;
+      content: '';
+      display: block;
+      height: 25px;
+      transition: transform .25s ease-in-out;
+      width: 15px;
+    }
+    &:focus {
+      outline: 0;
+      background: rgba($black, .2);
+    }
+  }
+  .btn-prev {
+    left: .25rem;
+    &::before {
+      background-image: url('../images/icon-arrow-left.svg');
+    }
+    &:hover::before {
+      transform: translateX(-.25rem);
+    }
+  }
+  .btn-next {
+    right: .25rem;
+    &::before {
+      background-image: url('../images/icon-arrow-right.svg');
+    }
+    &:hover::before {
+      transform: translateX(.25rem);
+    }
+  }
+  // Elements style.
+  .cs-header {
+    margin-bottom: 1em;
+    position: relative;
+    pointer-events: none;
+    &::before {
+      background: rgba($black, .65);
+      bottom: 0;
+      content: '';
+      display: block;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: background .25s ease-in-out;
+      z-index: 1;
+    }
+  }
+  .cs-image {
+    overflow: hidden;
+    img {
+      display: block;
+      transition: transform .25s ease-in-out;
+    }
+  }
+  .cs-title {
+    color: $white;
+    font-size: 1.2em;
+    font-weight: 600;
+    left: 0;
+    padding: 1em;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+  .field-content > a {
+    &:focus {
+      outline: none;
+      .cs-header::before {
+        background: rgba($new-dk-blue, .85);
+      }
+      .cs-header::after {
+        // Add inset dotted border (new element for IE compatibility)
+        border: 1px dotted $white;
+        bottom: .25rem;
+        content: '';
+        display: block;
+        left: .25rem;
+        position: absolute;
+        right: .25rem;
+        top: .25rem;
+        z-index: 15;
+      }
+      .cs-title {
+        text-decoration: underline;
+      }
+    }
+    &:hover {
+      .cs-header::before {
+        background: rgba($new-dk-blue, .85);
+      }
+      .cs-image img {
+        transform: scale(1.1);
+      }
+      @media screen and (prefers-reduced-motion: reduce) {
+        // If prefers-reduced-motion do not animate on hover.
+        .cs-image img {
+          transform: none;
+        }
+      }
+    }
+  }
+  .views-field-body {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+
+// Remove padding if view follows a d-title pane
+.d-title + .panel-separator + .panel-pane .view-redesign-2018-case-studies {
+  padding-top: 0;
+}

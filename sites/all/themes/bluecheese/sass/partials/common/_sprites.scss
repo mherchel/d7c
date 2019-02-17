@@ -1,0 +1,123 @@
+// See each sprite's PSD file for adding images. PSD files are located in the assets directory.
+//
+// Add selector for the list of *all* elements using the background for image and repeat,
+// Define the background-position seperately per-element.
+//
+// Example:
+//
+// #nav-masthead li,
+// #nav-masthead li a {
+//   background-image: url(../images/sprites-header.png);
+//   background-repeat:no-repeat;
+// }
+//
+// #nav-masthead li a {
+//   background-position: 100% 0;
+// }
+//
+// #nav-masthead li {
+//   background-position: 0 -48px;
+// }
+//
+// Some files have images of variable height. Each image has its height
+// written next to it, so simply add the heights to know the background-position.
+
+// Small icons sprite
+#content .node-footer a.comment_comments,
+#content .node-footer .comment-add a,
+#block-drupalorg_handbook-meta-sidebar .page-major-problem span,
+.rss-feed-link,
+.search-results .search-info .comments,
+.portlet-header .portlet-settings,
+.portlet-plus,
+.portlet-close {
+  @include small-sprite;
+}
+
+.search-results .search-info .comments,
+#content .node-footer a.comment_comments,
+#content .node-footer .comment-add a {
+  background-position: 0 -415px;
+  padding-left: 15px;
+}
+
+#block-drupalorg_handbook-meta-sidebar .page-major-problem span {
+  background-position: 0 -223px;
+  padding-left: 15px;
+}
+
+.rss-feed-link {
+  background-position: 0 -30px;
+  padding-left: 20px;
+}
+
+.portlet-header .portlet-settings {
+  background-position: 2px -64px;
+}
+
+.portlet-plus {
+  background-position: 2px -192px;
+}
+
+.portlet-close {
+  background-position: 2px -128px;
+}
+
+// Pointer icon.
+.page-search #aside .item-list ul li a.selected,
+.page-search #aside .item-list ul li a:hover,
+.page-search #aside .item-list ul li a.facetapi-active,
+#block-views-drupalorg-casestudies-block-2 ul.views-summary li a.active,
+#block-views-drupalorg-casestudies-block-2 ul.views-summary li a:hover,
+#block-views-drupalorg-casestudies-block-2 ul.views-summary li a:focus,
+#block-views-drupalorg-casestudies-block-4 ul.views-summary li a.active,
+#block-views-drupalorg-casestudies-block-4 ul.views-summary li a:hover,
+#block-views-drupalorg-casestudies-block-4 ul.views-summary li a:focus,
+#block-views-drupalorg-training-block-1 ul.views-summary li a.active,
+#block-views-drupalorg-training-block-1 ul.views-summary li a:hover,
+#block-views-drupalorg-training-block-1 ul.views-summary li a:focus {
+  @include icon-pointer;
+}
+
+#aboutwebbased a,
+#aboutcontentmanagement a,
+#aboutmodules a,
+#aboutthemes a,
+#aboutsearching a,
+#aboutsocial a,
+#aboutcommunity a,
+#aboutpersonalisation a {
+  background: $white $sprite-large-icons no-repeat;
+}
+
+#aboutwebbased a {
+  background-position: 4px 0;
+}
+
+#aboutcontentmanagement a {
+  background-position: 4px -96px;
+}
+
+#aboutmodules a {
+  background-position: 4px -192px;
+}
+
+#aboutthemes a {
+  background-position: 4px -288px;
+}
+
+#aboutsearching a {
+  background-position: 4px -384px;
+}
+
+#aboutsocial a {
+  background-position: 4px -480px;
+}
+
+#aboutcommunity a {
+  background-position: 4px -576px;
+}
+
+#aboutpersonalisation a {
+  background-position: 4px -1056px;
+}

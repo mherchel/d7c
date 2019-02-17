@@ -1,0 +1,143 @@
+// Generic logos view style.
+.pane-logos-3-per-row,
+.pane-logos-4-per-row,
+.pane-drupalorg-logos-panel-pane-1,
+.pane-drupalorg-logos-panel-pane-2,
+.pane-drupalorg-organizations-panel-pane-1,
+.pane-drupalorg-organizations-panel-pane-2,
+.pane-drupalorg-organizations-panel-pane-3,
+.pane-drupalorg-organizations-panel-pane-4,
+.pane-drupalorg-organizations-panel-pane-5 {
+  text-align: center;
+  .pane-content {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: calc(960px + 8vw);
+    padding: 2em 4vw;
+  }
+  .view-content {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    .views-row {
+      padding: .5em;
+      position: relative;
+    }
+  }
+  .views-field-field-logo {
+    margin-bottom: .5em;
+    padding-top: 45%;
+    position: relative;
+    .field-content {
+      align-items: center;
+      bottom: 1em;
+      display: flex;
+      justify-content: center;
+      left: 1em;
+      position: absolute;
+      right: 1em;
+      top: 1em;
+    }
+    img {
+      display: inline-block;
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+    }
+  }
+  a {
+    // Pseudoelement to link all block
+    &::before {
+      bottom: 0;
+      content: '';
+      display: block;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    // Add inset dotted border for focus style
+    &:focus::before {
+      outline: 1px dotted;
+    }
+  }
+}
+
+// Brands
+.pane-drupalorg-logos-panel-pane-2,
+.pane-drupalorg-organizations-panel-pane-1,
+.pane-drupalorg-organizations-panel-pane-2,
+.pane-drupalorg-organizations-panel-pane-3,
+.pane-drupalorg-organizations-panel-pane-4,
+.pane-drupalorg-organizations-panel-pane-5 {
+  background: $body-text;
+  color: $white;
+  .pane-title {
+    color: $white;
+  }
+  .views-row {
+    flex-basis: 100%;
+    @include breakpoint($small) {
+      flex-basis: 50%;
+    }
+    @include breakpoint($medium) {
+      flex-basis: 33.3%;
+    }
+  }
+  .views-field-field-logo {
+    background-color: $white;
+    box-shadow: 0 0 5px rgba($black, .6);
+  }
+  a {
+    color: $white;
+  }
+}
+// 3wide logo display w/gray instead of white background
+.pane-logos-3-per-row {
+  color: $body-text;
+  .pane-title {
+    color: $white;
+  }
+  .views-row {
+    flex-basis: 100%;
+    @include breakpoint($small) {
+      flex-basis: 50%;
+    }
+    @include breakpoint($medium) {
+      flex-basis: 33.3%;
+    }
+  }
+  .views-field-field-logo {
+    background-color: $new-lt-gray;
+  }
+  a {
+    color: $body-text;
+  }
+}
+
+// Drupal integrations
+.pane-logos-4-per-row,
+.pane-drupalorg-logos-panel-pane-1 {
+  background-color: $white;
+  .pane-title {
+    color: $new-dk-gray;
+  }
+  .views-row {
+    flex-basis: 100%;
+    @include breakpoint($small) {
+      flex-basis: 50%;
+    }
+    @include breakpoint($medium) {
+      flex-basis: 33.3%;
+    }
+    @include breakpoint($extra-large) {
+      flex-basis: 25%;
+    }
+  }
+  .views-field-field-logo {
+    background-color: $new-lt-gray;
+  }
+  a {
+    color: $body-text;
+  }
+}

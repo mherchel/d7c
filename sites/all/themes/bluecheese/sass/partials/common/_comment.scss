@@ -1,0 +1,228 @@
+.comment {
+  border-top: 1px solid $new-gray;
+  margin-top: 0.692em;
+  padding-top: 0.692em;
+
+  &:first-of-type {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  // Reset styles for Prism tokens that share the same class name.
+  &.token {
+    border: none;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  > h3 {
+    margin-bottom: 0;
+  }
+  .submitted {
+    font-style: italic;
+    a.username {
+      font-style: normal;
+      font-size: 1.2307em;
+    }
+
+    // Issue comment attribution.
+    .attribution-label {
+      background: $new-lt-gray;
+      font-size: (10em / 12);
+      font-style: normal;
+      padding: 0.3em;
+      border-radius: 5px;
+      cursor: pointer;
+      position: relative;
+    }
+    .attribution {
+      background: $new-lt-gray;
+      font-size: (12em / 10);
+      font-style: normal;
+      padding: 0.3em 0.5em;
+      border: 1px solid $new-gray;
+      border-radius: 0.25em;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, .4);
+      position: absolute;
+      top: 1.7em;
+      left: -4em;
+      @include breakpoint(max-width $small) {
+        width: 15em; // As wide as the screen.
+      }
+      @include breakpoint($small) {
+        white-space: pre; // As long as the text is.
+      }
+      z-index: 1;
+
+      &:after, &:before { // Arrow
+        bottom: 100%;
+        left: 5.5em;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+      &:after {
+        border-bottom-color: $new-lt-gray;
+        border-width: 5px;
+        margin-left: -5px;
+      }
+      &:before {
+        border-bottom-color: $new-gray;
+        border-width: 7px;
+        margin-left: -7px;
+      }
+    }
+
+    time {
+      border-bottom: 1px dotted;
+      cursor: pointer;
+    }
+  }
+  .permalink-wrapper {
+    float: right;
+    margin: -.2708em 0 0 0.5em; // Align baseline with .submitted, and spacing.
+    .permalink {
+      font-weight: normal;
+      font-style: normal;
+      color: $new-dk-gray;
+      &:hover, &:focus {
+        color: $new-blue;
+      }
+    }
+  }
+  .links {
+    float: right;
+  }
+  .new {
+    float: right;
+    color: $white;
+    background: lighten($new-dk-gray, 20%);
+    padding: 3px 6px;
+    margin: 0 0 0 0.5em;
+    text-transform: uppercase;
+    font-size: 0.8333em;
+    line-height: 1em;
+  }
+  .picture {
+    float: left;
+    width: 40px;
+    img {
+      display: block;
+      border-radius: 50%;
+    }
+  }
+  // Move out of the way of the user picture.
+  > h3, .submitted, .content {
+    margin-left: 50px;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+  #content & ul:last-child {
+    margin-bottom: 0;
+  }
+
+  // System message styling in issue comments.
+  &.system-message {
+    border-top: none;
+    padding-top: 0;
+
+    #content & .submitted {
+      float: right;
+      font-size: .7692em; // 10pt
+      margin: .6em .6em 0 0; // Matches .content padding.
+    }
+    .submitted time {
+      display: none;
+    }
+    &:hover .submitted time,
+    &:focus .submitted time {
+      display: inline;
+    }
+    .permalink {
+      color: $new-dk-gray;
+    }
+    .new {
+      margin: 4px 4px 0 0;
+    }
+    .content {
+      background: $new-lt-gray;
+      color: $new-dk-gray;
+      margin-left: 0;
+      border-left: 10px solid $new-gray;
+      font-size: .923em; // * 13 = 12pt
+      padding: .5em 10px;
+    }
+    &.testing-failed .content {
+      border-left-color: nth($issue-pink, 1);
+    }
+    &.queued-retesting .content {
+      border-left-color: $issue-orange;
+    }
+    &.closed .content {
+      border-left-color: nth($issue-pink, 2);
+    }
+    &.committed .content {
+      border-left-color: $new-green;
+      a {
+        font-weight: bold;
+      }
+      #content & ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+      li {
+        margin-bottom: 0.5em;
+      }
+      li:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .new-user {
+    @include new-user-badge;
+    font-size: .7692em; // 10px
+    line-height: 1.3; // 13px
+    margin: .25em 0 0 0;
+  }
+
+  .user-picture-with-button {
+    float: left;
+  }
+  .confirm-button-form {
+    @extend %confirm-button;
+    clear: left;
+    float: left;
+    width: $comment-user-picture-width;
+
+    input {
+      border: 0;
+      font-size: .692em;
+      font-weight: normal;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.user-signature {
+  margin: 1.5em 0 0 0; // 9px top margin. p:last-child removes the final p margin.
+  @include smaller;
+}
+
+.indented {
+  margin-left: 30px;
+}
+.indented .indented .indented .indented { // stop indenting comments after four levels of indention
+  margin-left: 0;
+}
+
+// RTL stop indenting comments after four levels of indention
+[dir=rtl] .indented .indented .indented .indented {
+  margin-right: 0;
+}

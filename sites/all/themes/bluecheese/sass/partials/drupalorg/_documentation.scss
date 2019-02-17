@@ -1,0 +1,46 @@
+// Page status block
+#block-drupalorg-handbook-meta-sidebar {
+  .page-status {
+    padding: 0.692em;
+  }
+  .page-ok {
+    background-color: $messages-status;
+  }
+  .page-needs-work {
+    background-color: $messages-warning;
+  }
+  .page-major-problem {
+    background-color: $messages-error;
+  }
+}
+
+#block-drupalorg-handbook-about-page dd {
+  padding-left: 0;
+}
+
+@include breakpoint($small) {
+  .developer-guides,
+  .other-information {
+    @include span-columns(4, 8);
+  }
+  .other-information {
+    @include omega;
+  }
+}
+
+// Documentation survey
+#block-drupalorg-documentation-survey {
+  .action-button {
+    display: none;
+  }
+  @include breakpoint($medium) {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border-top: 1px solid $new-gray;
+    border-left: 1px solid $new-gray;
+    iframe {
+      width: 500px;
+    }
+  }
+}

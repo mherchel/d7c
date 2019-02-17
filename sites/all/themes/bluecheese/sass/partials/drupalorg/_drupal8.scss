@@ -1,0 +1,9 @@
+.drupal-8-feature-table td {
+  @include span-columns(12);
+  @include breakpoint(760px) {
+    @include span-columns(6);
+    &:nth-child(2){
+      @include omega;
+    }
+  }
+}

@@ -1,0 +1,182 @@
+#page {
+  flex: auto;
+}
+
+.page-inner>* {
+  margin-bottom: 2em;
+}
+
+@include breakpoint($medium) {
+  #main {
+    @include span-columns(12 omega);
+    z-index: 1;
+  }
+  .one-sidebar,
+  .two-sidebars,
+  .node-type-forum {
+    #main {
+      @include span-columns(8);
+    }
+  }
+
+  #aside,
+  #sidebar-first {
+    @include span-columns(4 omega);
+  }
+
+  #aside {
+    clear: right; // Stack under #sidebar-first.
+  }
+
+  .page-title-wrapper {
+    @include span-columns(8);
+  }
+  #page-tools {
+    @include span-columns(4 omega);
+  }
+}
+
+// This is how we fix nested classes that are in content for now
+// todo: remove grid classes post upgrade
+.one-sidebar,
+.two-sidebars {
+  #main .grid-4 {
+    @include span-columns(4,8);
+  }
+}
+.one-sidebar,
+.two-sidebars {
+  #main .grid-4.omega {
+    @include omega();
+  }
+}
+
+// The section title on pages where there is a section title, then section
+// tabs, then page title.
+div#page-title {
+  margin-top: 1em;
+}
+
+#page-subtitle {
+  // Snug up to breadcrumb.
+  margin-top: 0;
+}
+
+.breadcrumb {
+  padding-bottom: 0;
+  span:not(:first-child):before {
+    content: ' » ';
+  }
+}
+
+.new-style {
+  #page-subtitle {
+    // Reset.
+    margin-top: .825em;
+  }
+  .breadbox {
+    background: $new-md-blue;
+  }
+  .breadcrumb {
+    font-size: 1.25em;
+    @include breakpoint($medium) {
+      font-size: 1.5em;
+    }
+    span {
+      display: inline-block;
+      padding: 0.75em 0.625em 0.75em 1.25em;
+      position: relative;
+      a {
+        color: $white;
+        text-decoration: none;
+      }
+      &:before {
+        content: ''; // Reset site-wide breadcrumb separator.
+      }
+      &:after {
+        border-color: transparent transparent transparent $new-dk-blue;
+        border-style: solid;
+        border-width: 1.2em 0 1.2em .625em;
+        content: '';
+        display: block;
+        position: absolute;
+        background-image: none;
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        top: 0;
+        right: -0.625em;
+        z-index: 1;
+      }
+      &:nth-child(1) {
+        background-color: mix($new-blue, $new-dk-blue, 75%);
+        margin-left: -1.25em;
+        &:before {
+          border-color: transparent transparent transparent $new-md-blue;
+          border-style: solid;
+          border-width: 1.2em 0 1.2em .625em;
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+        }
+        &:after {
+          border-color: transparent transparent transparent mix($new-blue, $new-dk-blue, 75%);
+        }
+        &:hover {
+          background-color: mix($new-blue, $new-dk-blue, 85%);
+          &:after {
+            border-color: transparent transparent transparent mix($new-blue, $new-dk-blue, 85%);
+          }
+        }
+      }
+      &:nth-child(2) {
+        background-color: mix($new-blue, $new-dk-blue, 50%);
+        &:after {
+          border-color: transparent transparent transparent mix($new-blue, $new-dk-blue, 50%);
+        }
+        &:hover {
+          background-color: mix($new-blue, $new-dk-blue, 60%);
+          &:after {
+            border-color: transparent transparent transparent mix($new-blue, $new-dk-blue, 60%);
+          }
+        }
+      }
+      &:nth-child(3) {
+        background-color: mix($new-blue, $new-dk-blue, 28%);
+        &:after {
+          border-color: transparent transparent transparent mix($new-blue, $new-dk-blue, 28%);
+        }
+        &:hover {
+          background-color: mix($new-blue, $new-dk-blue, 38%);
+          &:after {
+            border-color: transparent transparent transparent mix($new-blue, $new-dk-blue, 38%);
+          }
+        }
+      }
+    }
+  }
+}
+
+// 'Add X to dashboard' link
+#page-tools {
+  margin: 0.692em 0 0;
+  text-align: right;
+
+  a {
+    color: $new-dk-green;
+  }
+}
+
+// Underneath both content and sidebar.
+#content-bottom-region {
+  clear: both;
+}
+
+// Prevent invisible elements from affecting page width on mobile.
+.element-invisible {
+  width: 1px;
+  word-wrap: normal;
+}

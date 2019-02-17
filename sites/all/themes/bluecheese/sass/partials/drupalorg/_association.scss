@@ -1,0 +1,362 @@
+// DA election pages
+// Candidate pages
+
+.election-candidate .field-label {
+  margin: 1em 0 0.45em;
+}
+
+.field-name-field-election-picture img {
+  position: relative;
+  float: left;
+  margin-right: 2%;
+}
+
+.election-candidate .replies-header {
+  margin-top: 2em;
+}
+
+.election-candidate .reply {
+  border: none;
+  border-left: solid 1px $new-gray;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  padding-left: 1em;
+}
+
+.election-candidate .reply-body .field-label {
+  display: none;
+}
+
+.election-candidate .reply-links {
+  margin-top: 0.5em;
+  a {
+    margin-right: 0.5em;
+  }
+}
+
+
+// List of candidates
+ul.election-candidate li.views-row div.views-field-view-link {
+  position:absolute;
+  margin-top:auto;
+  margin-bottom:5%;
+  bottom:0px;
+  right: 1px;
+  left:auto;
+}
+
+//maintains float for list of nominees
+.elec-list{
+  float:left;
+}
+
+.election-candidate .views-field-view-link{
+  clear:left;
+  text-align: center;
+  margin-bottom: 1%;
+  margin-left:0%;
+  margin-right:auto;
+  width:100%;
+}
+
+
+.election-candidate .views-row {
+  position:relative;
+  background-color:#F6F6F2;
+  margin: 0 4% 4% 0px;
+  width: 48%;
+  min-height: 18em;
+  padding: 1em;
+  @include clearfix;
+  &.views-row-even {
+    margin-right: 0;
+    }
+  }
+
+
+  .candidate-picture,
+  .views-field-field-election-picture a {
+    max-width: 100px;
+    float: left;
+    position: relative;
+    padding-right: 10px;
+    padding-bottom: 5px;
+  }
+
+  .views-field.views-field-field-irc-handle div:before,
+  #block-views-nominations-block-1 .views-field.views-field-field-irc-handle > div:before {
+    content:"irc:" " ";
+    font-weight: bold;
+    clear:right;
+  }
+
+  .views-row .views-field-field-twitter > div:before {
+    content:url(../images/twitter-16x16.png);
+    position: relative;
+    top: 3px;
+    padding-right: 5px;
+  }
+
+  .field-name-field-twitter {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .field-name-field-about-me {
+    padding-bottom: 5px;
+  }
+
+  #content .view-nominations {
+    padding-left: 0;
+  }
+
+  #content .view-nominations .views-row-odd {
+    clear: left;
+  }
+
+  .view-nominations .election-candidate-name {
+    font-size: 1.0em;
+    line-height: 1.35em;
+    margin-bottom: 0.5em;
+    display: block;
+  }
+
+  .view-nominations .views-field {
+    margin-bottom: 0.5em;
+  }
+
+  .view-nominations .views-label {
+    display: none;
+  }
+
+  .field-name-field-candidate-comments {
+    clear: both;
+  }
+
+  // Candidate Preview
+
+  #aside {
+    position: relative;
+  }
+
+  #aside .view-nominations .views-row {
+    min-height: 0;
+  }
+
+ #block-views-nominations-block-1 .view {
+    overflow: visible;
+    padding:0;
+    li {
+      width: 100%;
+      z-index: 99;
+    }
+  }
+
+#block-views-nominations-block-1 .views-field-nothing {
+      text-align: center;
+      padding-bottom:1em;
+}
+
+  .election-candidate .views-field-name h2.field-content{
+    margin-top:-10px;
+  }
+
+  #aside #block-block-158 .block-inner {
+    background: white;
+    @include clearfix;
+  }
+
+  #block-views-nominations-block-1 .views-field-field-election-picture {
+    position: relative;
+    float: left;
+    margin-right: 5px;
+  }
+
+
+.druprofilelink a:before {
+    position: relative;
+    top: 3px;
+    padding-right: 5px;
+    content: url(../images/druplicon-16x16.png);
+  }
+
+
+
+  // Comment/reply Thread
+
+  .replies-wrapper {
+    .entity-reply {
+      @include clearfix;
+      border-bottom: 1px solid #ccc;
+      position: relative;
+    }
+
+    .user-picture {
+      float: left;
+      margin: 1em;
+      img {
+        height: auto;
+        max-width: 70%;
+      }
+    }
+
+    .reply-body {
+      margin-left: 6em;
+      padding-top: 0.5em;
+    }
+
+    .reply-links {
+      float:right;
+      margin-left: 6em;
+      padding-bottom:10px;
+    }
+
+    .by-candidate {
+      background-color: $new-lt-gray;
+    }
+
+    .depth-1 {
+      margin-left: 2em;
+    }
+
+    .depth-2 {
+      margin-left: 4em;
+    }
+  }
+
+  // Nomination Page
+
+  #edit-post-id, #election-candidate-form div.form-item.form-type-select.form-item-post-id.form-disabled > label {
+    visibility: hidden;
+  }
+
+  // Elections voting
+
+  @include breakpoint($medium) {
+    .election-ballot-paper .election-candidate-ballot-item a,
+    #election-vote-form.confirmation .candidate-name {
+      line-height: $candidate-picture-height;
+      vertical-align: middle;
+      text-align: middle;
+    }
+  }
+
+  #election-ballot-paper tr.candidate-divider {
+    background-color: $new-lt-orange;
+    color: $black;
+  }
+
+  #election-vote-form.confirmation table {
+    width: 100%;
+  }
+
+  #edit-post-help{
+    display: none;
+  }
+
+  // Drupal Association Membership Page (CiviCRM) CSS changes
+  // Field Backgrounds
+
+  .crm-block fieldset:not(.filter-wrapper):not(.vertical-tabs-pane) {
+    background: none;
+  }
+
+  // Field Labels
+
+  .crm-container .crm-section .label, .crm-container-snippet .crm-section .label {
+    width: 15%;
+    min-width: 150px;
+    text-align: left;
+    padding-left: .5%;
+  }
+
+  // CRM Section Content
+
+  .crm-container .crm-section .content, .crm-container-snippet .crm-section .content {
+    margin-left: 0px !important;
+    display: inline-block;
+    max-width: 84%;
+  }
+
+  // Hide pre-selected membership
+  .crm-container .membership_amount-section {
+    > .label, > .content {
+      display: none;
+    }
+  }
+
+  #allow_auto_renew {
+    margin-bottom: 1em;
+  }
+
+  // Fonts
+
+  .crm-container fieldset legend {
+    @include content-font;
+  }
+
+  // Fixing Civi Buttons to Match Bluecheese Styling
+
+  #crm-container.crm-public #crm-submit-buttons {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  #crm-container .crm-button, #crm-container input[type="button"], #crm-container.crm-public #crm-submit-buttons input {
+    background: none;
+    border: none;
+    @include large-button;
+  }
+
+  #crm-container .crm-button.crm-icon-button {
+    .crm-button-icon {
+      display: none;
+    }
+    input {
+      padding: 0 0.5em;
+    }
+  }
+
+  #crm-container.crm-public #crm-submit-buttons input#_qf_Main_upload-bottom {
+    font-size: 1em;
+  }
+
+  // Side-by-Side Divs in Body
+
+  #membership {
+    display: inline-block;
+  }
+
+  .content-sub-block {
+    background: lighten($new-blue, 15%);
+    color: $white;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  #crm-container.crm-public #premiums-listings {
+    width: 100%;
+    max-width: 375px;
+  }
+
+  // Drupal Blue Highlighted Content Boxes in Civi Page Body
+
+  .content-sub-block h2 {
+    background: $new-blue;
+    padding: 4px 8px;
+  }
+
+  .content-sub-block p, .content-sub-block li {
+    font-size: 1.15em;
+    line-height: 1.15em;
+    padding: 0px 20px;
+  }
+
+  .content-sub-block a {
+    color: $white !important;
+    font-weight: bolder;
+  }
+
+  .content-sub-block a:hover {
+    text-decoration: underline;
+  }
