@@ -50,6 +50,7 @@
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; ?>
+
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <div id="skip-link">
@@ -59,5 +60,38 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
+
+  <script>
+    jQueryOld = window.jQuery;
+    // if (typeof($) != 'undefined') {
+    //   $old = $
+    // };
+  </script>
+  <script
+    src="https://code.jquery.com/jquery-1.7.2.min.js"
+    integrity="sha256-R7aNzoy2gFrVs+pNJ6+SokH04ppcEqJ0yFLkNGoFALQ="
+    crossorigin="anonymous"></script>
+  <script>
+    jQueryNew = jQuery;
+    jQuery = jQueryOld;
+    // if (typeof($old) != 'undefined') {
+    //   $ = $old
+    // };
+  </script>
+
+    <link rel="stylesheet" type="text/css" href="/sites/all/libraries/clippy-js/build/clippy.css" media="all">
+
+<!-- Clippy.js -->
+<script src="/sites/all/libraries/clippy-js/build/clippy.js"></script>
+
+<!-- Init script -->
+<script type="text/javascript">
+    clippy.load('Clippy', function(agent){
+        // do anything with the loaded agent
+        agent.show();
+        agent.speak('Hi Helena! 😀');
+        console.log(agent.animations());
+    });
+</script>
 </body>
 </html>
