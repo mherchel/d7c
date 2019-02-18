@@ -61,30 +61,8 @@
   <?php print $page; ?>
   <?php print $page_bottom; ?>
 
-  <script>
-    // jQueryOld = window.jQuery;
-    // if (typeof($) != 'undefined') {
-    //   $old = $
-    // };
-  </script>
-  <!-- <script
-    src="https://code.jquery.com/jquery-1.7.2.min.js"
-    integrity="sha256-R7aNzoy2gFrVs+pNJ6+SokH04ppcEqJ0yFLkNGoFALQ="
-    crossorigin="anonymous"></script> -->
-  <script>
-    // jQueryNew = jQuery;
-    // jQuery = jQueryOld;
-    // if (typeof($old) != 'undefined') {
-    //   $ = $old
-    // };
-  </script>
 
-    <link rel="stylesheet" type="text/css" href="/sites/all/libraries/clippy-js/build/clippy.css" media="all">
-
-<!-- Clippy.js -->
-<script src="/sites/all/libraries/clippy-js/build/clippy.js"></script>
-
-<!-- Init script -->
+<link rel="stylesheet" type="text/css" href="/sites/all/libraries/clippy-js/build/clippy.css" media="all">
 <script src="/sites/all/themes/bluecheese/js/clippy_init.js"></script>
 </body>
 </html>

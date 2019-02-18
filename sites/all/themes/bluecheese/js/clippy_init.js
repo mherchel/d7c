@@ -57,6 +57,6 @@ function loadClippy() {
 function runClippyRun(agent) {
   // Do anything with the loaded agent
   agent.show();
-  agent.speak('Heya..  😀');
+  agent.speak('Heya..<a href="http://www.google.com">google</a>  😀');
   console.log(agent.animations());
 }
