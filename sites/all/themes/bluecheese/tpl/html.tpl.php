@@ -62,21 +62,21 @@
   <?php print $page_bottom; ?>
 
   <script>
-    jQueryOld = window.jQuery;
-    if (typeof($) != 'undefined') {
-      $old = $
-    };
+    // jQueryOld = window.jQuery;
+    // if (typeof($) != 'undefined') {
+    //   $old = $
+    // };
   </script>
-  <script
+  <!-- <script
     src="https://code.jquery.com/jquery-1.7.2.min.js"
     integrity="sha256-R7aNzoy2gFrVs+pNJ6+SokH04ppcEqJ0yFLkNGoFALQ="
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script> -->
   <script>
-    jQueryNew = jQuery;
-    jQuery = jQueryOld;
-    if (typeof($old) != 'undefined') {
-      $ = $old
-    };
+    // jQueryNew = jQuery;
+    // jQuery = jQueryOld;
+    // if (typeof($old) != 'undefined') {
+    //   $ = $old
+    // };
   </script>
 
     <link rel="stylesheet" type="text/css" href="/sites/all/libraries/clippy-js/build/clippy.css" media="all">

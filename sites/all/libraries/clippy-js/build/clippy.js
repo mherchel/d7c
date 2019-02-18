@@ -666,7 +666,7 @@ clippy.Balloon = function (targetEl) {
 clippy.Balloon.prototype = {
 
     WORD_SPEAK_TIME:320,
-    CLOSE_BALLOON_DELAY:5000,
+    CLOSE_BALLOON_DELAY:50000,
 
     _setup:function () {
 
@@ -811,7 +811,7 @@ clippy.Balloon.prototype = {
                     this.hide();
                 }
             } else {
-                el.text(words.slice(0, idx).join(' '));
+                el.html(words.slice(0, idx).join(' '));
                 idx++;
                 this._loop = window.setTimeout($.proxy(this._addWord, this), time);
             }
