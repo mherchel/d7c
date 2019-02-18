@@ -7,7 +7,7 @@
  * @see https://photos.app.goo.gl/QveFZvhDaY9KRnoj9
  */
 (function() {
-  if (loadClippy() ) {
+  if (loadClippy()) {
     // Preserve jQuery 1.44.
     window.jQueryOld = window.jQuery;
 
@@ -39,6 +39,11 @@
    * Logic to determine if Clippy even load ¯\_(ツ)_/¯
    */
   function loadClippy() {
+    // Should we show Clippy no matter what?
+    if (alwaysShowClippy()) {
+      return true;
+    }
+
     // If we can detect the network speed, and we determine it's not fast, we do not load Clippy 😞.
     if (navigator && navigator.connection && navigator.connection.effectiveType) {
       if (navigator.connection.effectiveType != '4g') {
@@ -51,7 +56,7 @@
       return false;
     }
 
-    var date = 'February 18, 2019';
+    var date = 'April 01, 2019';
     var startDate = new Date(date + ' 00:00:00');
     var endDate = new Date(date + ' 23:59:59');
     var CurrentDate = new Date();
@@ -64,18 +69,20 @@
     return true; // Load Clippy! 😆
   }
 
-  // /*
-  //  * Debug mode
-  //  */
-  // function isDebugMode() {
-  //   var urlSearchParams = (new URL(document.location)).searchParams;
-  // }
+  /*
+   * Always Show Clippy -- no matter the date.
+   *
+   * To use, append a 'showmesomeclippy' parameter into the querystring.
+   */
+  function alwaysShowClippy() {
+    var urlSearchParams = (new URL(document.location)).searchParams;
+    return urlSearchParams.get('showmesomeclippy') != null;
+  }
 
   /*
    * This is where we keep the logic to tell Clippy what to do, and when to do it.
    */
   function runClippyRun(agent) {
-    // Do anything with the loaded agent
     agent.show();
     agent.speak('Have you registered for <a href="https://events.drupal.org/seattle2019">DrupalCon Seattle</a> yet?  😀');
     console.log(agent.animations());
