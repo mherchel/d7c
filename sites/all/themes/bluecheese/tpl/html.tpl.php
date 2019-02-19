@@ -60,8 +60,8 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
-
+<!--
   <link rel="stylesheet" type="text/css" href="/sites/all/libraries/clippy-js/build/clippy.css" media="all">
-  <script src="/sites/all/themes/bluecheese/js/clippy_init.js"></script>
+  <script src="/sites/all/themes/bluecheese/js/clippy_init.js"></script> -->
 </body>
 </html>

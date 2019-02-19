@@ -9,6 +9,10 @@ function bluecheese_preprocess_page(&$variables) {
 
   // Add variable for site status message (for development sites).
   $variables['drupalorg_site_status'] = filter_xss_admin(variable_get('drupalorg_site_status', FALSE));
+
+  // Clippy!
+  drupal_add_css('sites/all/libraries/clippy-js/build/clippy.css');
+  drupal_add_js(drupal_get_path('theme', 'bluecheese') . '/js/clippy_init.js');
 }
 
 /**
