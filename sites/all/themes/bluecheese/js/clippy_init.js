@@ -2,14 +2,26 @@
  * Logic to load ClippyJS while preserving global jQuery version 1.4.4.
  * @see https://github.com/smore-inc/clippy.js
  *
+ * How to use:
+ * Clippy will only activate on Apr 1, 2019. It first checks bandwidth (if it can),
+ * and checks to make sure that "data saver" isn't enabled. It also checks to
+ * make sure the viewport width is greater than 1000px.
+ *
+ * URL parameters:
+ * You can pass in a 'debug' parameter into the URL to output console info on why Clippy is or
+ * is not loading.
+ * You can pass in a 'showmesomeclippy' parameter to show clippy no matter the date.
+ *
+ * Example: https://drupal.org?showmesomeclippy&debug
+ *
  * Created by the contribution sprint at Florida DrupalCamp (www.fldrupal.camp) with
  * special thanks to Mike Herchel (mherchel), John Tucker, Mike Anello (ultimike), and Jordana Fung (jordana).
  * @see https://photos.app.goo.gl/QveFZvhDaY9KRnoj9
  */
 (function() {
-  if (loadClippy()) {
-    debugMode('Original global jQuery version: ' + window.jQuery.fn.jquery);
+  debugMode('Original global jQuery version: ' + window.jQuery.fn.jquery);
 
+  if (loadClippy()) {
     // Preserve jQuery 1.44.
     window.jQueryOld = window.jQuery;
 
@@ -33,9 +45,8 @@
       // Load the Clippy script and then instantiate it! 😎
       jQueryNew.getScript('/sites/all/libraries/clippy-js/build/clippy.js', function() {
         clippy.load('Clippy', runClippyRun);
+        debugMode('Final global jQuery version: ' + window.jQuery.fn.jquery);
       });
-
-      debugMode('Final global jQuery version: ' + window.jQuery.fn.jquery);
     });
   }
 
@@ -45,14 +56,15 @@
   function loadClippy() {
     // Should we show Clippy no matter what?
     if (alwaysShowClippy()) {
-      debugMode('Always show Clippy enabled');
+      debugMode('"Always show Clippy" enabled.');
       return true;
     }
 
     // If we can detect the network speed, and we determine it's not fast, we do not load Clippy 😞.
+    // We also check if Data Saver is enabled. If it is, we don't load Clippy.
     if (navigator && navigator.connection && navigator.connection.effectiveType) {
-      if (navigator.connection.effectiveType != '4g') {
-        debugMode('Connection speed not sufficient to load Clippy.');
+      if (navigator.connection.effectiveType != '4g' || navigator.connection.saveData) {
+        debugMode('Connection speed not sufficient or data saver enabled.');
         return false;
       }
     }
@@ -70,7 +82,7 @@
 
     // If it's not April fools day, don't load Clippy 😞.
     if (CurrentDate < startDate || CurrentDate > endDate) {
-      debugMode('Today\'s not the correct day to load Clippy. Try between ' + startDate + ' and ' + endDate + '. Right now is ' + CurrentDate);
+      debugMode('Today\'s not the correct day to load Clippy. Try between\n' + startDate + ' and \n' + endDate + '\nRight now is\n' + CurrentDate);
       return false;
     }
 
@@ -101,7 +113,7 @@
       console.log(params);
     }
 
-    return debug
+    return debug;
   }
 
   /*
