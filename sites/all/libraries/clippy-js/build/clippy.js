@@ -1,4 +1,11 @@
 (function ($) {
+
+// Code to help debug Clippy (if necessary)
+var urlSearchParams = (new URL(document.location)).searchParams;
+if (urlSearchParams.get('debug') != null) {
+    console.log('Clippy\'s jQuery version: ' + window.jQueryNew.fn.jquery);;
+}
+
 var clippy = {};
 
 /******

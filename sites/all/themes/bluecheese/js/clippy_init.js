@@ -8,6 +8,8 @@
  */
 (function() {
   if (loadClippy()) {
+    debugMode('Original global jQuery version: ' + window.jQuery.fn.jquery);
+
     // Preserve jQuery 1.44.
     window.jQueryOld = window.jQuery;
 
@@ -32,6 +34,8 @@
       jQueryNew.getScript('/sites/all/libraries/clippy-js/build/clippy.js', function() {
         clippy.load('Clippy', runClippyRun);
       });
+
+      debugMode('Final global jQuery version: ' + window.jQuery.fn.jquery);
     });
   }
 
@@ -41,18 +45,21 @@
   function loadClippy() {
     // Should we show Clippy no matter what?
     if (alwaysShowClippy()) {
+      debugMode('Always show Clippy enabled');
       return true;
     }
 
     // If we can detect the network speed, and we determine it's not fast, we do not load Clippy 😞.
     if (navigator && navigator.connection && navigator.connection.effectiveType) {
       if (navigator.connection.effectiveType != '4g') {
+        debugMode('Connection speed not sufficient to load Clippy.');
         return false;
       }
     }
 
     // If the window width is not at least 1000px, don't load Clippy 😞.
     if (!matchMedia('(min-width: 1000px)').matches) {
+      debugMode('Viewport width to small to load Clippy.')
       return false;
     }
 
@@ -63,9 +70,11 @@
 
     // If it's not April fools day, don't load Clippy 😞.
     if (CurrentDate < startDate || CurrentDate > endDate) {
+      debugMode('Today\'s not the correct day to load Clippy. Try between ' + startDate + ' and ' + endDate + '. Right now is ' + CurrentDate);
       return false;
     }
 
+    debugMode('We\'re loading Clippy!');
     return true; // Load Clippy! 😆
   }
 
@@ -80,10 +89,29 @@
   }
 
   /*
+   * Are we in debug mode?
+   *
+   * This will also log any data passed into it.
+   */
+  function debugMode(params) {
+    var urlSearchParams = (new URL(document.location)).searchParams;
+    var debug = urlSearchParams.get('debug') != null;
+
+    if (debug && params != 'undefined') {
+      console.log(params);
+    }
+
+    return debug
+  }
+
+  /*
    * This is where we keep the logic to tell Clippy what to do, and when to do it.
    */
   function runClippyRun(agent) {
     agent.show();
+    if (debugMode) {
+      agent.speak('Hi! I\'m in debug mode!');
+    }
     agent.speak('Have you registered for <a href="https://events.drupal.org/seattle2019">DrupalCon Seattle</a> yet?  😀');
     console.log(agent.animations());
   }
