@@ -26,7 +26,7 @@
     window.jQueryOld = window.jQuery;
 
     // If $ is used, preserve that up, too (similar to jQuery no conflict mode).
-    if (typeof (window.$) != 'undefined') {
+    if ($ in window) {
       window.$old = window.$
     };
 
@@ -38,7 +38,7 @@
       window.jQuery = window.jQueryOld;
 
       // Restore the $ if it was in use.
-      if (typeof (window.$old) != 'undefined') {
+      if ($old in window) {
         window.$ = window.$old
       };
 
