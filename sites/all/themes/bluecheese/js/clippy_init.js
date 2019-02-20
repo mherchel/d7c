@@ -26,7 +26,7 @@
     window.jQueryOld = window.jQuery;
 
     // If $ is used, preserve that up, too (similar to jQuery no conflict mode).
-    if ($ in window) {
+    if ('$' in window) {
       window.$old = window.$
     };
 
@@ -38,7 +38,7 @@
       window.jQuery = window.jQueryOld;
 
       // Restore the $ if it was in use.
-      if ($old in window) {
+      if ('$old' in window) {
         window.$ = window.$old
       };
 
@@ -54,6 +54,21 @@
    * Logic to determine if Clippy even load ¯\_(ツ)_/¯
    */
   function loadClippy() {
+
+    // Abort if we don't support native JavaScript promises.
+    var isAsyncSupported;
+    try {
+      isAsyncSupported = eval(`typeof Object.getPrototypeOf(async function() {}).constructor === 'function'`);
+    }
+    catch (exception) {
+      isAsyncSupported = false;
+    }
+
+    if (!isAsyncSupported) {
+      debugMode('This browser doesn\'t support async/await.');
+      return false;
+    }
+
     // Should we show Clippy no matter what?
     if (alwaysShowClippy()) {
       debugMode('"Always show Clippy" enabled.');
@@ -116,15 +131,53 @@
     return debug;
   }
 
+  // Helper function for Clippy to pause in between saying things.
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  // Clippy's dialog on Issue nodes.
+  async function clippyIssue(agent) {
+    const issueForm = document.querySelector('#edit-search-block-form--2').getClientRects()[0];
+
+    await sleep(5000);
+    agent.play('GetAttention');
+    agent.speak('Hey! It looks like you\'re investigating some issues there...');
+    await sleep(5000);
+    agent.animate();
+    await sleep(5000);
+    agent.speak('Have you tried clearing the cache?');
+    await sleep(3000);
+    agent.speak('It\'s "drush cc all"...');
+    await sleep(2000);
+    agent.speak('Wait! I mean "drush cr"');
+    await sleep(2000);
+    agent.speak('...or is it "drupal cr"?');
+    await sleep(2000);
+    agent.speak('When in doubt, I just navigate to performance and hit the button there :)');
+    await sleep(5000);
+    agent.animate();
+    agent.speak('Sometimes turning off the Drupal and turning it back on again helps 😎');
+    await sleep(5000);
+    agent.speak('Hope I\'m not annoying you...');
+    await sleep(10000);
+    agent.moveTo(issueForm.x, issueForm.y);
+    agent.play('GestureRight');
+    agent.speak('Here\'s the issue form. Make sure you follow the best practices when creating one 😉');
+    await sleep(5000);
+    agent.speak('What are those best practices? No clue. You\'ll have to search for that info.');
+    await sleep(5000);
+    agent.speak('Protip: Pay it forward! Answer someone else\'s question before posting your own!');
+  }
+
   /*
    * This is where we keep the logic to tell Clippy what to do, and when to do it.
    */
   function runClippyRun(agent) {
     agent.show();
-    if (debugMode) {
-      agent.speak('Hi! I\'m in debug mode!');
-    }
-    agent.speak('Have you registered for <a href="https://events.drupal.org/seattle2019">DrupalCon Seattle</a> yet?  😀');
     console.log(agent.animations());
+    clippyIssue(agent);
   }
+
+
 })();
