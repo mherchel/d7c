@@ -136,48 +136,127 @@
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  // Clippy's dialog on Issue nodes.
-  async function clippyIssue(agent) {
-    const issueForm = document.querySelector('#edit-search-block-form--2').getClientRects()[0];
+  // var uid = 'uid' in Drupal.settings.clippy ? Drupal.settings.clippy.uid : false;
+  var firstName = 'first_name' in Drupal.settings.clippy ? Drupal.settings.clippy.first_name : '';
 
-    await sleep(5000);
-    agent.play('GetAttention');
-    agent.speak('Hey! It looks like you\'re investigating some issues there...');
-    await sleep(5000);
-    agent.animate();
-    await sleep(5000);
-    agent.speak('Have you tried clearing the cache?');
-    await sleep(3000);
-    agent.speak('It\'s "drush cc all"...');
-    await sleep(2000);
-    agent.speak('Wait! I mean "drush cr"');
-    await sleep(2000);
-    agent.speak('...or is it "drupal cr"?');
-    await sleep(2000);
-    agent.speak('When in doubt, I just navigate to performance and hit the button there :)');
-    await sleep(5000);
-    agent.animate();
-    agent.speak('Sometimes turning off the Drupal and turning it back on again helps 😎');
-    await sleep(5000);
-    agent.speak('Hope I\'m not annoying you...');
-    await sleep(10000);
-    agent.moveTo(issueForm.x, issueForm.y);
-    agent.play('GestureRight');
-    agent.speak('Here\'s the issue form. Make sure you follow the best practices when creating one 😉');
-    await sleep(5000);
-    agent.speak('What are those best practices? No clue. You\'ll have to search for that info.');
-    await sleep(5000);
-    agent.speak('Protip: Pay it forward! Answer someone else\'s question before posting your own!');
-  }
 
   /*
    * This is where we keep the logic to tell Clippy what to do, and when to do it.
    */
   function runClippyRun(agent) {
+    var body = document.querySelector('body');
     agent.show();
-    console.log(agent.animations());
-    clippyIssue(agent);
+    debugMode(agent.animations());
+
+    if (body.classList.contains('front')) {
+      // Front
+      scriptViewFront(agent);
+    }
+    else if (body.classList.contains('node-type-project-issue')) {
+      // Viewing an issue
+      scriptViewIssue(agent);
+    }
+    else if (body.classList.contains('page-node-add-project-issue')) {
+      scriptCreateIssue(agent);
+    }
+    else if (body.classList.contains('node-type-project-module')) {
+      // Viewing a module/theme
+      scriptViewProject(agent);
+    }
+    else if (body.classList.contains('list of issues')) {
+      // Viewing list of issues
+      scriptViewIssueList(agent);
+    }
+    else if (body.classList.contains('node-type-guide') || body.classList.contains('node-type-documentation')) {
+      // Viewing documentation
+      scriptViewDocs(agent);
+    }
+    else if (body.classList.contains('page-node-2995599')) {
+      // Drupal Download page
+      scriptViewDownload(agent);
+    }
+    else if (body.classList.contains('page-node-2918542')) {
+      // Community page
+      scriptViewCommunity(agent);
+    }
+    else {
+      // Generic script
+      scriptCatchAll(agent);
+    }
   }
 
+  async function scriptViewFront() {
+    debugMode('Clippy: viewing homepage');
+  }
 
+  async function scriptViewIssue(agent) {
+    // const issueForm = document.querySelector('#edit-search-block-form--2').getClientRects()[0];
+
+    await sleep(5000);
+    agent.play(`GetAttention`);
+    agent.speak(`Hey ${firstName}! It looks like you're having some trouble...`);
+    await sleep(5000);
+    agent.animate();
+    await sleep(5000);
+    agent.speak(`Have you tried clearing the cache?`);
+    await sleep(5000);
+    agent.speak(`It's "drush cc all"...`);
+    await sleep(2000);
+    agent.speak(`Wait! I mean "drush cr"`);
+    await sleep(2000);
+    agent.speak(`...or is it "drupal cr"?`);
+    await sleep(2000);
+    agent.speak(`When in doubt, I just navigate to performance and hit the button there :)`);
+    await sleep(10000);
+    agent.animate();
+    agent.speak(`Sometimes turning it off and turning it back on again helps 😎`);
+    await sleep(15000);
+    agent.speak(`Have you tried clearing the cache?`);
+    await sleep(30000);
+    agent.speak(`Have you tried clearing the cache?`);
+    await sleep(60000);
+    agent.speak(`Have you tried clearing the cache?`);
+    await sleep(120000);
+    agent.speak(`Have you tried clearing the cache?`);
+    await sleep(240000);
+    agent.speak(`Have you tried clearing the cache?`);
+    await sleep(500000);
+    agent.speak(`Have you tried clearing the cache?`);
+    // await sleep(10000);
+    // agent.moveTo(issueForm.x, issueForm.y);
+    // agent.play(`GestureRight`);
+    // agent.speak(`Here's the issue form. Make sure you follow the best practices when creating one 😉`);
+    // await sleep(5000);
+    // agent.speak(`What are those best practices? No clue. You'll have to search for that info.`);
+    // await sleep(5000);
+    // agent.speak(`Protip: Pay it forward! Answer someone else's question before posting your own!`);
+  }
+
+  async function scriptCreateIssue() {
+    debugMode('Clippy: on create issue page');
+  }
+
+  async function scriptViewProject() {
+    debugMode('Clippy: on view project page');
+  }
+
+  async function scriptViewIssueList() {
+    debugMode('Clippy: viewing issue list');
+  }
+
+  async function scriptViewDocs() {
+    debugMode('Clippy: viewing docs');
+  }
+
+  async function scriptViewDownload() {
+    debugMode('Clippy: viewing download page');
+  }
+
+  async function scriptViewCommunity() {
+    debugMode('Clippy: viewing community pages');
+  }
+
+  async function scriptCatchAll() {
+    debugMode('Clippy: Catch-all script');
+  }
 })();
