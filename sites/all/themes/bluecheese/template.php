@@ -141,6 +141,14 @@ function bluecheese_menu_tree__user_menu($variables) {
       $image = image_style_url('drupalorg_user_picture', $file->uri);
       $class = 'person';
     }
+
+    // Make UID and first name available to Clippy JS.
+    drupal_add_js(array('clippy' => array('uid' => $account->uid)), 'setting');
+
+    if (isset($account->field_first_name) && isset($account->field_first_name['und']) && isset($account->field_first_name['und'][0])) {
+      $first_name = $account->field_first_name['und'][0]['safe_value'];
+      drupal_add_js(array('clippy' => array('first_name' => $first_name)), 'setting');
+    }
   }
   return '<div class="menu-block"><ul class="menu"><li class="button ' . $class . '"><a href="#block-system-user-menu"><img src="' . $image . '" alt="Log in, view profile, and more"></a><ul>' . $variables['tree'] . '</ul></li></ul></div>';
 }
